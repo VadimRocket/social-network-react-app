@@ -1,0 +1,50 @@
+.post__wrap {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.post__wrap h2 {
+    font-size: 22px;  
+    margin: 20px 0;
+}
+
+.post__wrap fieldset, .post__wrap input[textarea], .post__wrap button {
+    border: 0;
+
+}
+
+.post__wrap textarea {
+    width:100%;
+    font-size: 16px;
+    outline: none; /*Remove the blue glow*/
+    overflow: auto;
+    resize: none;
+    border: 1px solid #888; 
+    padding: 10px;
+    margin-bottom: 20px;    
+}
+.post__wrap button {
+    padding:10px 20px;
+    background: #000;
+    color: #fff;
+    display: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    margin-bottom: 10px;
+}
+.post__wrap button:hover {
+    background: #313131;
+    transition: all .3s ease-out;
+}
+
+
+.posts {
+    margin: 30px 0;
+}
+
+
