@@ -7,9 +7,10 @@ const Footer = () => {
         <footer className={s.footer}>
             <nav>
                <ul>
-                    <li><NavLink to="/profile">Profile</NavLink></li>
-                    <li><NavLink to="/dialogs">Messages</NavLink></li>
-                    <li><NavLink to="/settings">Settings</NavLink></li>
+                    <li className={s.item}><NavLink to="/profile" activeClassName={s.active}>Profile</NavLink></li>
+                    <li className={s.item}><NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink></li>
+                    <li className={s.item}><NavLink to="/music" activeClassName={s.active}>Music</NavLink></li>
+                    <li className={s.item}><NavLink to="/settings" activeClassName={s.active}>Settings</NavLink></li>
                 </ul>
             </nav>
        </footer>

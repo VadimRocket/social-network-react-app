@@ -45,3 +45,6 @@ footer nav ul li a:hover {
     background:  rgba(216, 29, 29, 0.233);
 }
 
+.item a.active {
+    background:  rgba(216, 29, 29, 0.233);
+}
