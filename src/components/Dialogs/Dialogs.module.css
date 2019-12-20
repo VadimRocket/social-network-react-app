@@ -1,4 +1,25 @@
-.dialogs__container{
-    color: brown;
- 
+.dialogs {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    /* grid-template-columns: 3fr 10fr; */
+    grid-gap: 10px;
+    
+
+}
+
+.dialog__list {
+    color: #000;
 }    
+
+.dialog {
+    
+}
+
+.messages {
+   
+}
+
+.message {
+
+}
