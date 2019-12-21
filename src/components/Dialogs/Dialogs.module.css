@@ -1,17 +1,22 @@
 .dialogs {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    /* grid-template-columns: 3fr 10fr; */
+    /* grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); */
+    grid-template-columns: 1fr 11fr;
     grid-gap: 10px;
     
 
 }
 
-.dialog__list {
+.dialog__list, .messages {
     color: #000;
+    line-height: 2;
+    
 }    
-
+.dialog__list a, .message {
+    padding-bottom: 10px;
+    text-decoration: none;    
+}
 .dialog {
     
 }

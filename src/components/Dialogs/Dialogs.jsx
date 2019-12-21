@@ -1,8 +1,29 @@
 import React from 'react';
 import s from './Dialogs.module.css';
+import {NavLink} from 'react-router-dom';
 
 
-const Dialogs = (props) => {
+const DialogItem = (props) => {
+
+    let path = "/dialogs/" + props.id;
+
+    return (
+        <div className={s.dialog}>
+            <NavLink to={path}> {props.name} </NavLink>
+        </div>
+    );
+}
+
+const Message = (props) => {
+
+    return (
+        <div className={s.dialog}>
+            <div className="massage">{props.message}</div>
+        </div>
+    );
+}
+
+const Dialogs = () => {
 
     return (
       
@@ -11,38 +32,24 @@ const Dialogs = (props) => {
        
             <div className={s.dialogs}>
                 <div className={s.dialog__list}>
-                    <div className={s.dialog}>
-                        Oliver
-                    </div>
-                    <div className={s.dialog}>
-                        Jack
-                    </div>
-                    <div className={s.dialog}>
-                        Harry
-                    </div>
-                    <div className={s.dialog}>
-                        Jacob
-                    </div>
-                    <div className={s.dialog}>
-                        Charlie
-                    </div>
-                    <div className={s.dialog}>
-                        Name
-                    </div>
+                    <DialogItem  name="Oliver" id="1" />
+                    <DialogItem  name="Jack" id="2" />
+                    <DialogItem  name="Harry" id="3" />
+                    <DialogItem  name="Jacob" id="4" />
+                    <DialogItem  name="Charlie" id="5" />
+                    <DialogItem  name="Alex" id="6" />
                 </div>
                 <div className={s.messages}>
-                    <div className="massage">Hello</div>
-                    <div className="massage">How are you ?</div>
-                    <div className="massage">I'am fine.</div>
-                    <div className="massage">=)</div>
-                    <div className="massage">Hi</div>
-                    <div className="massage">Bye-Bye!</div>
+                    <Message  message="Hello" />
+                    <Message  message="How are you?" />
+                    <Message  message="I'm fine" />
+                    <Message  message="=)" />
+                    <Message  message="Hi" />
+                    <Message  message="Bye-Bye!" />
                 </div>
             </div>
         </div>
     );
 };
-
-
 
 export default Dialogs;
