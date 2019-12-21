@@ -5,7 +5,7 @@ import Post from './../Post/Post'
 
 const MyPosts = () => {
     return (
-        <div className={s.post__wrap}>
+        <div className={s.postWrap}>
             <h2>My  posts</h2>
             <form action="">
                 <fieldset>

@@ -26,7 +26,6 @@ const Message = (props) => {
 const Dialogs = () => {
 
     return (
-      
        <div>
             <h3>Dialogs</h3>
        

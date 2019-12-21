@@ -1,27 +1,5 @@
-
 .profile__wrap img  {
     width: 100%;
-    height: auto;
-}
-.profile {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    justify-content: flex-start;
-    margin: 20px 0;
-    
-}
-.profile__avatar {
-    min-height: 120px;
-    min-width: 170px;
-    padding: 0px 30px;
-    padding-left: 5px
-}
-
-.profile__avatar img {
-    max-width: 120px;
     height: auto;
 }
 

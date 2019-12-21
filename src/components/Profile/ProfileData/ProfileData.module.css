@@ -1,0 +1,22 @@
+.profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: flex-start;
+    margin: 20px 0;
+    
+}
+
+.profileAvatar {
+    min-height: 120px;
+    min-width: 170px;
+    padding: 0px 30px;
+    padding-left: 5px
+}
+
+.profileAvatar img {
+    max-width: 120px;
+    height: auto;
+}
