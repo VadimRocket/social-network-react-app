@@ -8,21 +8,22 @@ import Settings from './components/Settings/Settings'
 import Dialogs from './components/Dialogs/Dialogs'
 import {BrowserRouter, Route} from 'react-router-dom';
 import Footer from './components/Footer/Footer'
-
 import './App.css';
 
 
-const App = () => {
+const App = (props) => {
+  console.log(props);
   return (
     <BrowserRouter>
       <div className="app-wrapper">
           <Header />
           <SideNav/>
           <div className="content">
-            <Route  path="/dialogs" component={Dialogs} />
-            <Route  path="/profile" component={Profile} />
-            <Route  path="/music" component={Music} />
-            <Route  path="/settings" component={Settings} />
+            {/* 2 variant */}
+              <Route path="/dialogs" render={ () => <Dialogs  messages={props.messages}  dialogsPeople={props.dialogsPeople} /> } />
+              <Route path="/profile" render={ () => <Profile  posts={props.posts}/> } />
+              <Route  path="/music"   render={ () => <Music />  } />
+              <Route  path="/settings" render={ () => <Settings /> } />
           </div>
           <Footer/>
       </div>
