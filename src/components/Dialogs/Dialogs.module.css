@@ -8,23 +8,12 @@
 
 }
 
-.dialog__list, .messages {
+.dialogList, .messages {
     color: #000;
     line-height: 2;
     
 }    
-.dialog__list a, .message {
+.dialogList a, .message {
     padding-bottom: 10px;
     text-decoration: none;    
-}
-.dialog {
-    
-}
-
-.messages {
-   
-}
-
-.message {
-
 }
