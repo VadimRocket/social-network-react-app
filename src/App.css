@@ -26,7 +26,7 @@ h3 {
 .content {
   grid-area: c;
   padding: 40px;
-  background: #ecedf2;
+  background: #fff;
 }
 
 .content img {

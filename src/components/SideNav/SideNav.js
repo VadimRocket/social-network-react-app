@@ -22,6 +22,4 @@ const SideNav = () => {
         </nav>
     );
 }
-
-
 export default SideNav;

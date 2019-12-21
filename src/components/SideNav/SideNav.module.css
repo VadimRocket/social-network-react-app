@@ -30,15 +30,13 @@
     -ms-transition:  all .3s ease-out;
     -o-transition:  all .3s ease-out;
     color: #555;
-    /* text-decoration: underline; */
-    padding-left: 5px;
 }
 .nav ul li {
     line-height: 1.4;
     padding-bottom: 20px;
 }
 .item a.active {
-    color: rgba(85, 10, 10, 0.932);
+    color: rgba(17, 10, 10, 0.932);
     font-size: 17px;
     font-weight: 700;
     

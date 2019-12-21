@@ -5,7 +5,7 @@ import s from './Settings.module.css';
 const Settings = (props) => {
 
     return (
-        <div className={s.settings__container}>
+        <div className={s.settingsWrap}>
             <h3>Settings</h3>
         </div>
     );

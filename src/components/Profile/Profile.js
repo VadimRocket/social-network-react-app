@@ -6,7 +6,7 @@ import ProfileData from './ProfileData/ProfileData';
 const Profile = () => {
     return (
        
-        <div className={s.profile__wrap}>
+        <div className={s.profileWrap}>
             <ProfileData />            
             <MyPosts />
         </div>

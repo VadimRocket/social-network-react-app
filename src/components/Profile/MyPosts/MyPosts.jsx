@@ -23,11 +23,10 @@ const MyPosts = () => {
                 </fieldset>
             </form>
             <div className={s.posts}>
-                {  postElements }
+                {  postElements }    {/* render postElems */}
             </div>
         </div>
         
     );
 }
-
 export default MyPosts;

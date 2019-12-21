@@ -2,6 +2,7 @@ import React from 'react';
 import s from './ProfileData.module.css';
 import avatar from './pd-images/avatar.jpg';
 import panorama from './pd-images/bg.jpg';
+import {NavLink} from 'react-router-dom';
 
 
 const ProfileData = () => {
@@ -16,7 +17,8 @@ const ProfileData = () => {
                         <p>Date of Birth: 2 jun</p>
                         <p>City: Mozyr</p>
                         <p>Education: BSU</p>
-                        <p>Web Site: <a href="https://vm.in">vm.in</a></p>
+                        <NavLink to="https://vm.in">vm.in</NavLink>
+                        
                     </div>
                 </div>
             
