@@ -8,6 +8,9 @@
     font-size: 22px;  
     margin: 20px 0;
 }
+.postWrap .posts {
+    margin: 30px 0;
+}
 
 .postWrap fieldset, .postWrap button {
     border: 0!important;
@@ -43,8 +46,7 @@
     transition: all .3s ease-out;
 }
 
-.postWrap .posts {
-    margin: 30px 0;
+.posts {
+ background: transparent;
 }
-
 

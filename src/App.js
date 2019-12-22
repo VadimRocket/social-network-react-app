@@ -14,7 +14,7 @@ import './App.css';
 const App = (props) => {
   return (
     <BrowserRouter>
-      <div className="app-wrapper">
+      <div className="appWrapper">
           <Header />
           <SideNav storage={ props.storage.sideBar }/>
           <div className="content">

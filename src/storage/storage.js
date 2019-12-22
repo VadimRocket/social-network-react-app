@@ -3,12 +3,16 @@ let storage = {
     profilePage: {
          
         profilePosts:  [
-            { id: 1, message: 'Hi how are you?', like_count: 6},
-            { id: 2, message: 'It is my first post', like_count: 3},
-            { id: 3, message: 'This is my third post', like_count: 1},
+            { id: 1, message: 'Hi how are you?', like_count: 64, name:'Jack', photo: 'http://avotarov.net/picture/avatar-100/kartinki/903.jpg' },
+            { id: 2, message: 'It is my first post', like_count: 223, name:'Oliver', photo: 'http://avotarov.net/picture/avatar-100/kartinki/905.jpg' },
+            { id: 3, message: 'This is my third post', like_count: 131, name:'Bob', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
         ],
         profileInfo: [
-            {firstName: 'Alex', lastname: 'Smith', date_birth: '2 jun', city: 'Mozyr', education: 'BSU', site: 'vm.in', },
+            { firstName: 'Alex', 
+              lastname: 'Smith',
+              date_birth: '2 jun', 
+              city:'Mozyr', education: 'BSU', site: 'vm.in', photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
+            },
         ],
     },
     // message page data

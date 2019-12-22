@@ -12,11 +12,11 @@ const ProfileData = (props) => {
                <img  src={panorama}  alt="panorama"/>
                 <div className={s.profile}>
                     <div className={s.profileAvatar}> 
-                        <img src={avatar} alt="avatar" />
+                        <img src={props.profileInfo[0].photo} alt="avatar" />
                      </div>
                     <div className={s.profileData}>
                         <div className={s.profileFio}>Name: {props.profileInfo[0].firstName}  {props.profileInfo[0].lastName}</div>
-                        <p>Date of Birth: {props.profileInfo[0].dateBirth} </p>
+                        <p>Date of Birth: {props.profileInfo[0].date_birth} </p>
                         <p>City: {props.profileInfo[0].city}  </p>
                         <p>Education: {props.profileInfo[0].education} </p>
                         <NavLink to={ 'https://'+ props.profileInfo[0].site }> { props.profileInfo[0].site }  </NavLink>
