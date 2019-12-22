@@ -5,7 +5,7 @@ import Post from './../Post/Post'
 
 const MyPosts = (props) => {
 
-    let postElements  = props.posts.map( post => <Post message={post.message} like_count={post.like_count} key={ post.id }/>);
+    let postElements  = props.profilePosts.map( post => <Post message={post.message} like_count={post.like_count} key={ post.id }/>);
 
     return (
         <div className={s.postWrap}>

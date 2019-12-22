@@ -19,9 +19,17 @@ const App = (props) => {
           <Header />
           <SideNav/>
           <div className="content">
-            {/* 2 variant */}
-              <Route path="/dialogs" render={ () => <Dialogs  messages={props.messages}  dialogsPeople={props.dialogsPeople} /> } />
-              <Route path="/profile" render={ () => <Profile  posts={props.posts}/> } />
+              {/* 2 way */}
+              <Route path="/dialogs" 
+                render={ () =>
+                  <Dialogs 
+                    // messages = {props.storage.messagesPage.messages}  
+                    // people = {props.storage.messagesPage.people} /> 
+                    storage={props.storage.messagesPage} 
+                  /> 
+                } 
+              />
+              <Route path="/profile" render={ () => <Profile storage = { props.storage.profilePage }/> } />
               <Route  path="/music"   render={ () => <Music />  } />
               <Route  path="/settings" render={ () => <Settings /> } />
           </div>
