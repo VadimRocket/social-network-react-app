@@ -23,3 +23,8 @@
     border-radius: 50%;
     
 }
+
+.profileData span {
+    color: rgb(129, 128, 128);
+    font-weight: 600;
+}
