@@ -12,12 +12,11 @@ import './App.css';
 
 
 const App = (props) => {
-  console.log(props);
   return (
     <BrowserRouter>
       <div className="app-wrapper">
           <Header />
-          <SideNav/>
+          <SideNav storage={ props.storage.sideBar }/>
           <div className="content">
               {/* 2 way */}
               <Route path="/dialogs" 
@@ -25,12 +24,12 @@ const App = (props) => {
                   <Dialogs 
                     // messages = {props.storage.messagesPage.messages}  
                     // people = {props.storage.messagesPage.people} /> 
-                    storage={props.storage.messagesPage} 
+                    storage={ props.storage.messagesPage } 
                   /> 
                 } 
               />
-              <Route path="/profile" render={ () => <Profile storage = { props.storage.profilePage }/> } />
-              <Route  path="/music"   render={ () => <Music />  } />
+              <Route path="/profile" render={ () => <Profile storage={  props.storage.profilePage }   /> } />
+              <Route  path="/music"   render={ () => <Music /> } />
               <Route  path="/settings" render={ () => <Settings /> } />
           </div>
           <Footer/>

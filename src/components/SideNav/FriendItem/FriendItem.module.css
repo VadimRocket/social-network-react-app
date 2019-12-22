@@ -1,0 +1,17 @@
+
+
+.friendItem {
+    color: #555;
+    min-width: 79px;
+    padding-bottom: 20px;
+    min-height: 10vh;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center; */
+}
+.friendItem img {
+    max-width: 30px;
+    height: auto;
+    border-radius: 50%;
+}
