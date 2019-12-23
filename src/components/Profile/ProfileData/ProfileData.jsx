@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './ProfileData.module.css';
-import avatar from './pd-images/avatar.jpg';
 import panorama from './pd-images/bg.jpg';
 import {NavLink} from 'react-router-dom';
 

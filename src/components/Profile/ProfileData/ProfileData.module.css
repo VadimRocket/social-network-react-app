@@ -19,8 +19,10 @@
 .profileAvatar img {
     max-width: 120px;
     height: auto;
+    min-height: 80px;
     width: 100%;
     border-radius: 50%;
+    /* border: 8px solid #f4f4f4; */
     
 }
 
