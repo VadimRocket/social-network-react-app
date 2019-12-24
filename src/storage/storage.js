@@ -9,6 +9,9 @@ let storage = {
             { id: 2, message: 'It is my first post', like_count: 223, name:'Jack', photo: 'http://avotarov.net/picture/avatar-100/kartinki/905.jpg' },
             { id: 3, message: 'This is my third post', like_count: 131, name:'Harry', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
         ],
+
+        newPostText: 'Your text',
+
         profileInfo: [
             { firstName: 'Alex', 
               lastName: 'Smith',
@@ -57,14 +60,25 @@ let storage = {
 
 };
 
-export let addPost = (postMessage) => {
+window.storage = storage; // check data
+
+export let addPost = () => {
     let newPost  = {
         id: 5,
-        message: postMessage,
+        message: storage.profilePage.newPostText, // get data from newPostText
         like_count: 0,  
     };
     storage.profilePage.profilePosts.push(newPost);
+    storage.profilePage.newPostText = ''; // clear textarea after  Click on the btn - Add Post
     reRenderAllTree(storage);
 }
+
+export let updateNewPostText = (newText) => {
+   
+    storage.profilePage.newPostText = newText;
+    reRenderAllTree(storage);
+}
+
+
 
 export default storage;

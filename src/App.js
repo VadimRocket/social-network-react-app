@@ -28,7 +28,14 @@ const App = (props) => {
                   /> 
                 } 
               />
-              <Route path="/profile" render={ () => <Profile storage={  props.storage.profilePage }   addPost={ props.addPost } /> } />
+              <Route path="/profile" 
+                  render={ () => 
+                    <Profile 
+                      profilePage={  props.storage.profilePage }  
+                      addPost={ props.addPost } 
+                      updateNewPostText={ props.updateNewPostText }
+                    /> } 
+              />
               <Route  path="/music"   render={ () => <Music /> } />
               <Route  path="/settings" render={ () => <Settings /> } />
           </div>

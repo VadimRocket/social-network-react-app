@@ -4,14 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {addPost} from './storage/storage';  // import addPost Fu 
-
-// addPost('Add a new Post in the Profile page');
+import {updateNewPostText} from './storage/storage';  // import updateNewPostText Fu 
 
 export let reRenderAllTree = (storage) => {
 
     ReactDOM.render(
     
-         <App storage={storage} addPost={addPost} />, document.getElementById('root')
+         <App storage={storage} addPost={addPost}  updateNewPostText={updateNewPostText}/>, document.getElementById('root')
      
     );
 }
