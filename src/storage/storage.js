@@ -1,5 +1,7 @@
-import {reRenderAllTree} from './../render';
 
+let reRenderAllTree =() => {
+    console.log('state c');
+}
 let storage = {
     // profile page data
     profilePage: {
@@ -62,7 +64,7 @@ let storage = {
 
 window.storage = storage; // check data
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost  = {
         id: 5,
         message: storage.profilePage.newPostText, // get data from newPostText
@@ -73,12 +75,14 @@ export let addPost = () => {
     reRenderAllTree(storage);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
    
     storage.profilePage.newPostText = newText;
     reRenderAllTree(storage);
 }
 
-
+export const subscribe = (observer) => {
+    reRenderAllTree = observer;
+}
 
 export default storage;
