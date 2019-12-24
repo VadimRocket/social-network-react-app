@@ -1,14 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import storage from './storage/storage';
-
-
-ReactDOM.render(<App storage={storage} />, document.getElementById('root'));
-
+import {reRenderAllTree} from './render';
+import  storage from './storage/storage';
+reRenderAllTree(storage);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

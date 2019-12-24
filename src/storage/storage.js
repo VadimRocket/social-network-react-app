@@ -1,3 +1,5 @@
+import {reRenderAllTree} from './../render';
+
 let storage = {
     // profile page data
     profilePage: {
@@ -9,9 +11,12 @@ let storage = {
         ],
         profileInfo: [
             { firstName: 'Alex', 
-              lastname: 'Smith',
+              lastName: 'Smith',
               date_birth: '2 jun', 
-              city:'Mozyr', education: 'BSU', site: 'vm.in', photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
+              city:'Mozyr',
+              education: 'BSU', 
+              site: 'vm.in', 
+              photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
             },
         ],
     },
@@ -51,5 +56,15 @@ let storage = {
     },
 
 };
+
+export let addPost = (postMessage) => {
+    let newPost  = {
+        id: 5,
+        message: postMessage,
+        like_count: 0,  
+    };
+    storage.profilePage.profilePosts.push(newPost);
+    reRenderAllTree(storage);
+}
 
 export default storage;

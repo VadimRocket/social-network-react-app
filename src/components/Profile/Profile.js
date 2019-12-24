@@ -8,8 +8,8 @@ const Profile = (props) => {
     return (
        
         <div className={s.profileWrap}>
-            <ProfileData  profileInfo={props.storage.profileInfo}/>            
-            <MyPosts profilePosts={props.storage.profilePosts}/>
+            <ProfileData  profileInfo={ props.storage.profileInfo } />            
+            <MyPosts profilePosts={ props.storage.profilePosts } addPost={ props.addPost } />
         </div>
   
     );
