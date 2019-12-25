@@ -3,28 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {addPost} from './storage/storage';  // import addPost Fu 
-import {updateNewPostText} from './storage/storage';  // import updateNewPostText Fu 
-import  storage from './storage/storage';
+import store from './storage/storage';
 
-import {subscribe} from './storage/storage';
-
-let reRenderAllTree = (storage) => {
-
+let reRenderAllTree = (state) => {
     ReactDOM.render(
-    
-         <App storage={storage} addPost={addPost}  updateNewPostText={updateNewPostText}/>, document.getElementById('root')
-     
+        <App state={ state } addPost={ store.addPost.bind(store) }  updateNewPostText={ store.updateNewPostText.bind(store) } />,  // the method's owner - store object
+            document.getElementById('root')
     );
 }
 
-reRenderAllTree(storage);
+reRenderAllTree(store.getState());
 
-
-subscribe(reRenderAllTree);
-
-
-
+store.subscribe(reRenderAllTree);
 
 
 // If you want your app to work offline and load faster, you can change

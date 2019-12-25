@@ -5,7 +5,7 @@ import FriendItem from './FriendItem/FriendItem';
 
 const SideNav = (props) => {
     // debugger;
-    let FriendsElements = props.storage.friends.map( friend => <FriendItem name={friend.name} photo={friend.photo}  key={friend.id}  /> );
+    let FriendsElements = props.state.friends.map( friend => <FriendItem name={friend.name} photo={friend.photo}  key={friend.id}  /> );
 
     return (
 

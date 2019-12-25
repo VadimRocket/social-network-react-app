@@ -16,22 +16,22 @@ const App = (props) => {
     <BrowserRouter>
       <div className="appWrapper">
           <Header />
-          <SideNav storage={ props.storage.sideBar }/>
+          <SideNav state={ props.state.sideBar }/>
           <div className="content">
               {/* 2 way */}
               <Route path="/dialogs" 
                 render={ () =>
                   <Dialogs 
-                    // messages = {props.storage.messagesPage.messages}  
-                    // people = {props.storage.messagesPage.people} /> 
-                    storage={ props.storage.messagesPage } 
+                    // messages = {props.state.messagesPage.messages}  
+                    // people = {props.state.messagesPage.people} /> 
+                    state={ props.state.messagesPage } 
                   /> 
                 } 
               />
               <Route path="/profile" 
                   render={ () => 
                     <Profile 
-                      profilePage={  props.storage.profilePage }  
+                      profilePage={  props.state.profilePage }  
                       addPost={ props.addPost } 
                       updateNewPostText={ props.updateNewPostText }
                     /> } 
