@@ -1,5 +1,6 @@
 let store = {
 
+
     // private property // old name - storage
     _state: {
         // profile page data
