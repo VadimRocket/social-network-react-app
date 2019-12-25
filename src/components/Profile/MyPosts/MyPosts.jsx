@@ -1,6 +1,8 @@
 import React from 'react';
+import Post from './../Post/Post';
 import s from './MyPosts.module.css';
-import Post from './../Post/Post'
+
+import {addPostActionCreator, updateNewPostTextCreator } from './../../../storage/storage';
 
 const MyPosts = (props) => {
 
@@ -15,19 +17,18 @@ const MyPosts = (props) => {
         /> 
     );
 
+
     let newPostElement = React.createRef();  // create a reference
 
     // addPost - callback fu
-    let addPost = () => {
-        // props.addPost();  // bll fu    
-        props.dispatch( { type: 'ADD-POST' });   
+    let addPost = () => {  
+        props.dispatch( addPostActionCreator() );   
 
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        //  props.updateNewPostText(text);  // bll fu got a user text
-        let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text };
+        let action = updateNewPostTextCreator(text);
         props.dispatch( action );
          
     }

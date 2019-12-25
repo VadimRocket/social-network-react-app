@@ -1,6 +1,8 @@
+
+const ADD_POST  = 'ADD-POST';   // type action
+const UPDATE_NEW_POST_TEXT  = 'UPDATE-NEW-POST-TEXT'; // type action
+
 let store = {
-
-
     // private property // old name - storage
     _state: {
         // profile page data
@@ -75,7 +77,7 @@ let store = {
     },
 
     dispatch(action) {  // obj action - { type: ADD-POST }
-        if( action.type === 'ADD-POST' ) {
+        if( action.type === ADD_POST ) {
             // let's make the logic that is needed when adding a post
             let newPost  = {
                 id: 5,
@@ -85,15 +87,26 @@ let store = {
                 this._state.profilePage.profilePosts.push(newPost);
                 this._state.profilePage.newPostText = '';    // clear textarea after click on the btn - add Post
                 this._callSubscriber(this._state);
-        }else if( action.type === 'UPDATE-NEW-POST-TEXT' ) {
+        }else if( action.type === UPDATE_NEW_POST_TEXT ) {
                 this._state.profilePage.newPostText = action.newText;   // newText - obj property
                 this._callSubscriber(this._state);
         }
     },
 
-    
-
 };
+
+export const addPostActionCreator = () => {
+    return  {
+        type: ADD_POST
+    }
+}
+
+export const updateNewPostTextCreator = (text) => {
+    return  {
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text
+    }
+}
 
 export default store;
 window.store = store; // check data

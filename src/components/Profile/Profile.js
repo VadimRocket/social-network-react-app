@@ -4,7 +4,7 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileData from './ProfileData/ProfileData';
 
 const Profile = (props) => {
-    // console.log(props)
+    
     return (
 
         <div className={s.profileWrap}>
