@@ -61,33 +61,37 @@ let store = {
         },
 
     },
+
     getState() {
         return this._state;
+    },
+    
+    subscribe(observer) {
+        this._callSubscriber = observer;
     },
 
     _callSubscriber()  {
         console.log('the state ch');
     },
 
-    addPost() {
-        let newPost  = {
-            id: 5,
-            message: this._state.profilePage.newPostText, // get data from newPostText
-            like_count: 0,  
-        };
-        this._state.profilePage.profilePosts.push(newPost);
-        this._state.profilePage.newPostText = ''; // clear textarea after  Click on the btn - Add Post
-        this._callSubscriber(this._state);
+    dispatch(action) {  // obj action - { type: ADD-POST }
+        if( action.type === 'ADD-POST' ) {
+            // let's make the logic that is needed when adding a post
+            let newPost  = {
+                id: 5,
+                message: this._state.profilePage.newPostText, // get data from newPostText
+                like_count: 0,  
+            };
+                this._state.profilePage.profilePosts.push(newPost);
+                this._state.profilePage.newPostText = '';    // clear textarea after click on the btn - add Post
+                this._callSubscriber(this._state);
+        }else if( action.type === 'UPDATE-NEW-POST-TEXT' ) {
+                this._state.profilePage.newPostText = action.newText;   // newText - obj property
+                this._callSubscriber(this._state);
+        }
     },
 
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    },
+    
 
 };
 

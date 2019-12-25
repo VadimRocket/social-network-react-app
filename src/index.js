@@ -7,7 +7,7 @@ import store from './storage/storage';
 
 let reRenderAllTree = (state) => {
     ReactDOM.render(
-        <App state={ state } addPost={ store.addPost.bind(store) }  updateNewPostText={ store.updateNewPostText.bind(store) } />,  // the method's owner - store object
+        <App state={ state } dispatch={ store.dispatch.bind(store) }  />,  // the method's owner - store object
             document.getElementById('root')
     );
 }

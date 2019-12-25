@@ -19,12 +19,16 @@ const MyPosts = (props) => {
 
     // addPost - callback fu
     let addPost = () => {
-        props.addPost();  // bll fu       
+        // props.addPost();  // bll fu    
+        props.dispatch( { type: 'ADD-POST' });   
+
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-         props.updateNewPostText(text);          // bll fu got a user text
+        //  props.updateNewPostText(text);  // bll fu got a user text
+        let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text };
+        props.dispatch( action );
          
     }
 

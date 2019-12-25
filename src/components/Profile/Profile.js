@@ -6,13 +6,12 @@ import ProfileData from './ProfileData/ProfileData';
 const Profile = (props) => {
     // console.log(props)
     return (
-       
+
         <div className={s.profileWrap}>
             <ProfileData  profileInfo={ props.profilePage.profileInfo } />            
             <MyPosts profilePosts={ props.profilePage.profilePosts } 
-                addPost={ props.addPost } 
-                newPostText={props.profilePage.newPostText}
-                updateNewPostText={ props.updateNewPostText }
+                newPostText={ props.profilePage.newPostText }
+                dispatch={ props.dispatch }
             />
         </div>
   
