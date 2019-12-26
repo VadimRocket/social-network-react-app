@@ -6,14 +6,14 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 
 import Dialogs from './components/Dialogs/Dialogs'
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Footer from './components/Footer/Footer'
 import './App.css';
 
 
 const App = (props) => {
   return (
-    <BrowserRouter>
+   
       <div className="appWrapper">
           <Header />
           <SideNav state={ props.state.sideBar }/>
@@ -24,7 +24,7 @@ const App = (props) => {
                   <Dialogs 
                     // messages = {props.state.messagesPage.messages}  
                     // people = {props.state.messagesPage.people} /> 
-                    state={ props.state.messagesPage } 
+                    state={ props.state.messagesPage }    /* <- cb fu*/
                   /> 
                 } 
               />
@@ -41,7 +41,6 @@ const App = (props) => {
           </div>
           <Footer/>
       </div>
-    </BrowserRouter>
   );
 }
 
