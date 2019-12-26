@@ -108,5 +108,6 @@ export const updateNewPostTextCreator = (text) => {
     }
 }
 
+
 export default store;
 window.store = store; // check data
