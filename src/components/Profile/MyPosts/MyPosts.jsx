@@ -2,7 +2,7 @@ import React from 'react';
 import Post from './../Post/Post';
 import s from './MyPosts.module.css';
 
-import {addPostActionCreator, updateNewPostTextCreator } from './../../../storage/storage';
+import {addPostActionCreator, updateNewPostTextCreator } from './../../../storage/reducers/profile_page_reducer';
 
 const MyPosts = (props) => {
 

@@ -1,6 +1,6 @@
-
-const ADD_POST  = 'ADD-POST';   // type action
-const UPDATE_NEW_POST_TEXT  = 'UPDATE-NEW-POST-TEXT'; // type action
+import profileReducer  from './reducers/profile_page_reducer'
+import  dialogsReducer  from './reducers/dialogs_page_reducer'
+// import { sidebarReducer } from './reducers/sidebar_reducer'
 
 let store = {
     // private property // old name - storage
@@ -47,6 +47,8 @@ let store = {
                 { id: 5, message: 'What\'s up?'},
                 { id: 6, message: 'Bye-Bye!'}
             ],
+
+            newMassageText: 'Your message',
         
         },
 
@@ -61,7 +63,6 @@ let store = {
                 { id: 6, name: 'Oliver',  photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif' },
             ],
         },
-
     },
 
     getState() {
@@ -76,37 +77,25 @@ let store = {
         console.log('the state ch');
     },
 
-    dispatch(action) {  // obj action - { type: ADD-POST }
-        if( action.type === ADD_POST ) {
-            // let's make the logic that is needed when adding a post
-            let newPost  = {
-                id: 5,
-                message: this._state.profilePage.newPostText, // get data from newPostText
-                like_count: 0,  
-            };
-                this._state.profilePage.profilePosts.push(newPost);
-                this._state.profilePage.newPostText = '';    // clear textarea after click on the btn - add Post
-                this._callSubscriber(this._state);
-        }else if( action.type === UPDATE_NEW_POST_TEXT ) {
-                this._state.profilePage.newPostText = action.newText;   // newText - obj property
-                this._callSubscriber(this._state);
-        }
+    dispatch(action) {  // obj action 
+
+        /* profileReducer(state, action)
+            the state was updated in profileReducer and then we assigned it = profilePage
+            the right part is executed then it is assigned to the left part or not updated.
+        */     
+     
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);  
+        // this._state.messagesPage = sidebarReducer(this._state.messagesPage, action);
+       
+        this._callSubscriber(this._state);
+
     },
 
 };
 
-export const addPostActionCreator = () => {
-    return  {
-        type: ADD_POST
-    }
-}
 
-export const updateNewPostTextCreator = (text) => {
-    return  {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-}
+
 
 
 export default store;
