@@ -14,16 +14,16 @@ let store = {
                 { id: 3, message: 'This is my third post', like_count: 131, name:'Harry', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
             ],
 
-            newPostText: 'Your text',
+            newPostText: "",
 
             profileInfo: [
-                { firstName: 'Alex', 
-                lastName: 'Smith',
-                date_birth: '2 jun', 
-                city:'Mozyr',
-                education: 'BSU', 
-                site: 'vm.in', 
-                photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
+                {   firstName: 'Alex', 
+                    lastName: 'Smith',
+                    dateBirth: '2 jun', 
+                    city:'Mozyr',
+                    education: 'BSU', 
+                    site: 'vm.in', 
+                    photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
                 },
             ],
         },
@@ -93,9 +93,6 @@ let store = {
     },
 
 };
-
-
-
 
 
 export default store;

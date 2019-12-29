@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './Message.module.css';
 
-const Message = (props) => {
+const Message = ({message}) => {
 
     return (
-        <div>
-            <div className={s.massage}> {props.message} </div>
-        </div>
+           <div className={s.massage}> 
+               {message} 
+            </div>
     );
 }
 
