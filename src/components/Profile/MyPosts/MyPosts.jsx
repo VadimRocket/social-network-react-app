@@ -37,7 +37,7 @@ console.log(props);
     return (
         <div className={s.postWrap}>
             <h2>My posts</h2>
-                             {/* ref={ newPostElement } */}
+            {/* ref={ newPostElement } */}
                 <fieldset>
                     <textarea onChange={ onPostChange }   value={ props.newPostText }   rows="10" cols="45"  wrap="off"  />
                     <button  onClick={ onAddPost } type="submit">add Post</button>

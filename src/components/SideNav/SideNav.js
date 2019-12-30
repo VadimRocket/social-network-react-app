@@ -19,7 +19,7 @@ const SideNav = (props) => {
                         <NavLink to="/dialogs"  activeClassName={s.active}>Messages</NavLink>
                     </li>
                     <li className={s.item}>
-                        <NavLink to="/music"   activeClassName={s.active}>Music</NavLink>
+                            <NavLink to="/music"   activeClassName={s.active}>Music</NavLink>
                     </li>
                     <li className={s.item}>
                         <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>

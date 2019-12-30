@@ -5,8 +5,7 @@ import profileBg from './pd-images/bg.jpg';
 
 const ProfileItem = ({ firstName, lastName,  site,  education, city, dateBirth, photo }) => {
 
-    return (
-       
+    return ( 
         <>
             <img  src={profileBg}  alt={profileBg}/>
 
@@ -25,7 +24,6 @@ const ProfileItem = ({ firstName, lastName,  site,  education, city, dateBirth, 
                 </div>
             </div>
         </>
-
     );
 };
 export default ProfileItem;

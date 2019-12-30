@@ -3,24 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-<<<<<<< HEAD
-import store from './storage/storage';
-=======
 // import store from './storage/storage';
 import store from './redux/redux_store';
->>>>>>> 9_redux_container_component
 import {BrowserRouter} from 'react-router-dom';
 
 let reRenderAllTree = (state) => {
     
     ReactDOM.render(
-<<<<<<< HEAD
-        <BrowserRouter>
-            <App state={ state } dispatch={ store.dispatch.bind(store) }  />  {/* the method's owner - store object */}
-=======
          <BrowserRouter>  
             <App state={ state } dispatch={ store.dispatch.bind(store) }   store={store} />  {/* the method's owner - store object   */}
->>>>>>> 9_redux_container_component
         </BrowserRouter>,  
             document.getElementById('root')
     );

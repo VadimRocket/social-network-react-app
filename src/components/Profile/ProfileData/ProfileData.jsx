@@ -11,10 +11,10 @@ const ProfileData = (props) => {
             firstName={data.firstName} 
             lastName={data.lastName}  
             site={data.site}
-            education={data.education}
-            city={data.city}
-            dateBirth ={data.dateBirth}
-            photo ={data.photo}
+             education={data.education}
+             city={data.city}
+             dateBirth ={data.dateBirth}
+             photo ={data.photo}
       />);
 
     return (
