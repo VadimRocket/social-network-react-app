@@ -4,7 +4,7 @@ import profileReducer  from './../storage/reducers/profile_page_reducer';
 import dialogsReducer from './../storage/reducers/dialogs_page_reducer';
 import sidebarReducer from './../storage/reducers/sidebar_reducer';
 
-// воспринимай это как ваш стейт
+// take it as your state
 let reducers = combineReducers({
 
     profilePage: profileReducer,

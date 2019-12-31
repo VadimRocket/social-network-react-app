@@ -13,7 +13,6 @@
 // let initialState = {}; // if is empty
 
 const sidebarReducer = (state = initialState, action) => {
-
     return state;
 }
 

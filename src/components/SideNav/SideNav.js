@@ -3,9 +3,10 @@ import s from './SideNav.module.css';
 import {NavLink} from 'react-router-dom';
 import FriendItem from './FriendItem/FriendItem';
 
+
 const SideNav = (props) => {
     // debugger;
-    let FriendsElements = props.state.friends.map( friend => <FriendItem name={friend.name} photo={friend.photo}  key={friend.id}  /> );
+    let friendsElements = props.state.friends.map( friend => <FriendItem name={friend.name} photo={friend.photo}  key={friend.id}  /> );
 
     return (
 
@@ -19,7 +20,7 @@ const SideNav = (props) => {
                         <NavLink to="/dialogs"  activeClassName={s.active}>Messages</NavLink>
                     </li>
                     <li className={s.item}>
-                            <NavLink to="/music"   activeClassName={s.active}>Music</NavLink>
+                        <NavLink to="/music"   activeClassName={s.active}>Music</NavLink>
                     </li>
                     <li className={s.item}>
                         <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
@@ -29,9 +30,10 @@ const SideNav = (props) => {
 
             <h4>Friends</h4>
             <div className={s.friendsContainer}>
-                { FriendsElements }
+                { friendsElements }
             </div>
         </div>
     );
 }
+
 export default SideNav;

@@ -9,7 +9,7 @@
     -ms-flex-direction: row;
     flex-wrap: wrap; 
     margin-bottom: 10px;
-    background: #e0f0e8;
+    background: rgba(224, 240, 232, 0.25);
 }
 
 .itemList img {
@@ -21,6 +21,7 @@
     margin-bottom: 10px;
     
 }
+
 .itemList .itemList__item {
     min-height: 80px;
     padding: 10px 5px 5px 10px;
