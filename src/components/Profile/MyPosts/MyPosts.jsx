@@ -3,19 +3,17 @@ import s from './MyPosts.module.css';
 import Post from './../Post/Post';
 
 const MyPosts = (props) => {
-console.log(props);
 
-    let postElements = props.profilePosts.map( post => <Post 
+    let postElements = props.profilePosts.map( post =>
+        <Post 
             message={post.message}
             like_count={post.like_count} 
             photo={post.photo} 
             name={post.name} 
             id={post.id} 
-            key={post.id}/>   
+            key={post.id}
+        />   
     );
-
-
-    // let newPostElement = React.createRef();  // create a reference
 
     // addPost - callback fu
     let onAddPost = () => { 
@@ -29,15 +27,9 @@ console.log(props);
         console.log(text);
     }
     
-    // let onPostChange = () => {
-    //     let text = newPostElement.current.value;
-    //     props.updateNewPostText(text); 
-    // }
-
     return (
         <div className={s.postWrap}>
             <h2>My posts</h2>
-                             {/* ref={ newPostElement } */}
                 <fieldset>
                     <textarea onChange={ onPostChange }   value={ props.newPostText }   rows="10" cols="45"  wrap="off"  />
                     <button  onClick={ onAddPost } type="submit">add Post</button>

@@ -3,6 +3,7 @@ import s from './ProfileData.module.css';
 import {NavLink} from 'react-router-dom';
 import profileBg from './pd-images/bg.jpg';
 
+
 const ProfileItem = ({ firstName, lastName,  site,  education, city, dateBirth, photo }) => {
 
     return (

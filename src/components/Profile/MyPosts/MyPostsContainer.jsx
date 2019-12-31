@@ -15,15 +15,15 @@ const MyPostsContainer = (props) => {
     let onPostChange = (text) => {
         let action = updateNewPostTextCreator(text);
             props.store.dispatch( action ); 
-            console.log(text);
+            // console.log(text);
     }
 
     return ( 
-            <MyPosts 
-                updateNewPostText={ onPostChange } 
-                addPost={ onAddPost }  
-                profilePosts={ state.profilePage.profilePosts } 
-                newPostText={ state.profilePage.newPostText }    
+        <MyPosts 
+            updateNewPostText={ onPostChange } 
+            addPost={ onAddPost }  
+            profilePosts={ state.profilePage.profilePosts } 
+            newPostText={ state.profilePage.newPostText }    
         />  
     )
 }

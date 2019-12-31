@@ -3,19 +3,19 @@
     padding: 20px;
     padding: 40px 40px;
 }
+
 .sidebarWrap h4 {
     margin-bottom: 30px;
 }
+
 .nav {
     grid-area: n;
     margin-bottom: 40px;
-  }
+}
   
 .nav ul {
     list-style-type: none;
-    
 }
-
 
 .nav ul li a {
     text-decoration: none;
@@ -37,10 +37,12 @@
     -o-transition:  all .3s ease-out;
     color: #555;
 }
+
 .nav ul li {
     line-height: 1.4;
     padding-bottom: 20px;
 }
+
 .item a.active {
     color: rgba(17, 10, 10, 0.932);
     font-size: 17px;
@@ -53,6 +55,4 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    
-
 }

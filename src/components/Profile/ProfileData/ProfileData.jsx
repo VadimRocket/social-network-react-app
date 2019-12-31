@@ -8,13 +8,13 @@ const ProfileData = (props) => {
     let personInformation = state.profileInfo.map( data =>
 
       <ProfileItem 
-            firstName={data.firstName} 
-            lastName={data.lastName}  
-            site={data.site}
-            education={data.education}
-            city={data.city}
-            dateBirth ={data.dateBirth}
-            photo ={data.photo}
+          firstName={data.firstName} 
+          lastName={data.lastName}  
+          site={data.site}
+          education={data.education}
+          city={data.city}
+          dateBirth ={data.dateBirth}
+          photo ={data.photo}
       />);
 
     return (

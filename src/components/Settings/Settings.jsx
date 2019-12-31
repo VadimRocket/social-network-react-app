@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Settings.module.css';
 
 
-const Settings = (props) => {
+const Settings = () => {
 
     return (
         <div className={s.settingsWrap}>
@@ -10,7 +10,5 @@ const Settings = (props) => {
         </div>
     );
 };
-
-
 
 export default Settings;
