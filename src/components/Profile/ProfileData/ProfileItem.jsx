@@ -21,7 +21,7 @@ const ProfileItem = ({ firstName, lastName,  site,  education, city, dateBirth, 
                     <p><span>Date of Birth:</span> {dateBirth} </p>
                     <p><span>City: </span>{city}  </p>
                     <p><span>Education:</span> {education} </p>
-                    <p><span>Site:</span>   <NavLink to={ 'https://'+ site }> { site }  </NavLink></p>
+                    <p><span>Site:</span><a href={ 'https://'+ site }> { site } </a></p>
                 </div>
             </div>
         </>
