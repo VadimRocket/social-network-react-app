@@ -4,6 +4,7 @@ import  dialogsReducer  from './reducers/dialogs_page_reducer'
 
 let store = {
     // private property // old name - storage
+
     _state: {
         // profile page data
         profilePage: {
@@ -27,6 +28,7 @@ let store = {
                 },
             ],
         },
+        
         // message page data
         messagesPage: {
             

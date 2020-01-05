@@ -7,6 +7,7 @@ const MyPostsContainer = (props) => {
 
     let state = props.store.getState().profilePage;
   
+    
     let onAddPost = () => {  
         props.store.dispatch( addPostActionCreator() );   
 
@@ -19,6 +20,7 @@ const MyPostsContainer = (props) => {
     }
 
     return ( 
+        
         <MyPosts 
             updateNewPostText={ onPostChange } 
             addPost={ onAddPost }  
@@ -27,4 +29,5 @@ const MyPostsContainer = (props) => {
         />  
     )
 }
+
 export default MyPostsContainer;

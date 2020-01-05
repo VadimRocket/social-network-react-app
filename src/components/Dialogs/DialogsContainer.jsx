@@ -1,26 +1,27 @@
 import React from 'react';
 import Dialogs from './../Dialogs/Dialogs';
-import {send_new_messageCreator, update_new_messageCreator } from './../../storage/reducers/dialogs_page_reducer';
+import {sendNewMessageCreator, updateNewMessageCreator } from './../../storage/reducers/dialogs_page_reducer';
 
 
 const DialogsContainer = (props) => {
 
-    // got the state
+    // got the state 
     let state = props.store.getState().messagesPage; 
 
     let onUpdateMessage = (text) =>  {
 
-        let action = update_new_messageCreator(text);
+        let action = updateNewMessageCreator(text);
         props.store.dispatch(action);
-        console.log(action);
+        // console.log(action);
     }   
 
     let onAddMessage = () => {
-        props.store.dispatch( send_new_messageCreator() );  
+        props.store.dispatch( sendNewMessageCreator() );  
         
     }
 
     return ( 
+
         <Dialogs 
             updateNewMessage={onUpdateMessage} 
             sendMessage={onAddMessage} 

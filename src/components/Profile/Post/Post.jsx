@@ -2,7 +2,8 @@ import React from 'react';
 import s from './Post.module.css';
 import like from './../MyPosts/heart.svg';
 
-const Post = ({name, like_count, message, photo }) => {
+
+const Post = ({ name, like_count, message, photo }) => {
 
     return (
        
@@ -15,6 +16,7 @@ const Post = ({name, like_count, message, photo }) => {
                     { like_count } 
                 </p>
             </div>
+            
             <div className={s.itemList__item}>
                  <p> { message } </p>
             </div>

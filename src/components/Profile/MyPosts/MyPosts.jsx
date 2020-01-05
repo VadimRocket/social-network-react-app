@@ -4,7 +4,7 @@ import Post from './../Post/Post';
 
 const MyPosts = (props) => {
 
-    let postElements = props.profilePosts.map( post =>
+    let postElements = props.profilePosts.map( post => 
         <Post 
             message={post.message}
             like_count={post.like_count} 
@@ -15,7 +15,9 @@ const MyPosts = (props) => {
         />   
     );
 
-    // addPost - callback fu
+    /*
+        addPost, onPostChange - callback fu
+    */
     let onAddPost = () => { 
         props.addPost(); 
        
@@ -30,16 +32,16 @@ const MyPosts = (props) => {
     return (
         <div className={s.postWrap}>
             <h2>My posts</h2>
+
                 <fieldset>
-                    <textarea onChange={ onPostChange }   value={ props.newPostText }   rows="10" cols="45"  wrap="off"  />
+                    <textarea onChange={ onPostChange } value={ props.newPostText } rows="10" cols="45"  wrap="off"  />
                     <button  onClick={ onAddPost } type="submit">add Post</button>
                 </fieldset>
            
-            <div className={s.posts}>
-                {  postElements }    {/* render */}
+            <div>
+                {  postElements }    {/* render postElements */}
             </div>
-        </div>
-        
+        </div>  
     );
 }
 export default MyPosts;

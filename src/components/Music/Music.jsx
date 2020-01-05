@@ -9,6 +9,7 @@ const Music = () => {
             <h3>Music</h3>
         </div>
     );
+
 };
 
 export default Music;
