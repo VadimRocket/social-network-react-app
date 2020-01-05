@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './ProfileData.module.css';
-import {NavLink} from 'react-router-dom';
+
 import profileBg from './pd-images/bg.jpg';
 
-const ProfileItem = ({ firstName, lastName,  site,  education, city, dateBirth, photo }) => {
+const ProfileItem = ({ firstName, lastName, site, education, city, dateBirth, photo }) => {
 
     return ( 
 
@@ -21,7 +21,7 @@ const ProfileItem = ({ firstName, lastName,  site,  education, city, dateBirth, 
                     <p><span>Date of Birth:</span> {dateBirth} </p>
                     <p><span>City: </span>{city}  </p>
                     <p><span>Education:</span> {education} </p>
-                    <p><span>Site:</span><a href={ 'https://'+ site }> { site } </a></p>
+                    <p><span>Site:</span><a href={ 'https://'+ site }> { site }</a></p>
                 </div>
             </div>
         </>
