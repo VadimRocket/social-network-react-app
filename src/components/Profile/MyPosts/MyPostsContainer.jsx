@@ -1,33 +1,46 @@
-import React from 'react';
-import MyPosts from './../MyPosts/MyPosts';
-import {addPostActionCreator, updateNewPostTextCreator } from '../../../storage/reducers/profile_page_reducer';
+import {addPostActionCreator, updateNewPostTextCreator } from './../../../storage/reducers/profile_page_reducer';
+import MyPosts from "./MyPosts";
+import {connect} from "react-redux";
 
+// import Dialogs from "../../Dialogs/Dialogs";
+// const MyPostsContainer = (props) => {
+//
+//     let state = props.store.getState();
+//
+//     // addPost - callback fu
+//     let addPost = () => {
+//         props.store.dispatch(addPostActionCreator());
+//     };
+//
+//     let onPostChange = (text) => {
+//         let action = updateNewPostTextCreator(text);
+//         props.store.dispatch(action);
+//     };
+//
+//     return (<MyPosts updateNewPostText={onPostChange} addPost={addPost}
+//                      profilePosts={state.profilePage.profilePosts}
+//                      newPostText={ state.profilePage.newPostText } />);
+//
+// };
 
-const MyPostsContainer = (props) => {
-
-    let state = props.store.getState().profilePage;
-  
-    
-    let onAddPost = () => {  
-        props.store.dispatch( addPostActionCreator() );   
-
+let mapStateToProps = (state) => {
+    return {
+        profilePosts: state.profilePage.profilePosts,
+        newPostText: state.profilePage.newPostText
     }
+};
 
-    let onPostChange = (text) => {
-        let action = updateNewPostTextCreator(text);
-            props.store.dispatch( action ); 
-            // console.log(text);
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewPostText: (text) => {
+            dispatch(updateNewPostTextCreator(text));
+        },
+        addPost: () => {
+            dispatch(addPostActionCreator());
+        }
     }
+};
 
-    return ( 
-        
-        <MyPosts 
-            updateNewPostText={ onPostChange } 
-            addPost={ onAddPost }  
-            profilePosts={ state.profilePage.profilePosts } 
-            newPostText={ state.profilePage.newPostText }    
-        />  
-    )
-}
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;

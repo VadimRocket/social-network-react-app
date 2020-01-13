@@ -1,34 +1,49 @@
 import React from 'react';
-import Dialogs from './../Dialogs/Dialogs';
-import {sendNewMessageCreator, updateNewMessageCreator } from './../../storage/reducers/dialogs_page_reducer';
+import {sendMessageCreator, updateNewMessageBodyCreator } from './../../storage/reducers/dialogs_page_reducer';
+import Dialogs from "./Dialogs";
+import {connect} from "react-redux";
 
+// const DialogsContainer = (props) => {
+//
+//     // got the state
+//     let state  = props.store.getState().dialogsPage;
+//
+//     let onSendMessageClick =() => {
+//         props.store.dispatch( sendMessageCreator() );
+//     };
+//
+//     let onNewMessageChange = (body) =>  {
+//         let action = updateNewMessageBodyCreator(body);
+//         props.store.dispatch(action);
+//     };
+//
+//     return ( <Dialogs updateNewMessageBody={ onNewMessageChange}
+//                       sendMessage={onSendMessageClick}
+//                       dialogsPage={state}  />);
+// };
 
-const DialogsContainer = (props) => {
-
-    // got the state 
-    let state = props.store.getState().messagesPage; 
-
-    let onUpdateMessage = (text) =>  {
-
-        let action = updateNewMessageCreator(text);
-        props.store.dispatch(action);
-        // console.log(action);
-    }   
-
-    let onAddMessage = () => {
-        props.store.dispatch( sendNewMessageCreator() );  
-        
+let mapStateToProps = (state) => {
+    return {
+        dialogsPage: state.dialogsPage,
     }
-
-    return ( 
-
-        <Dialogs 
-            updateNewMessage={onUpdateMessage} 
-            sendMessage={onAddMessage} 
-            messagesPage={state}
-             
-        />
-    )
 };
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewMessageBody: (body) => {
+            dispatch(updateNewMessageBodyCreator(body));
+        },
+        sendMessage: () => {
+            dispatch(sendMessageCreator());
+        },
+    }
+};
+
+/*
+* @param{function} connect returns other fu (a new container component)
+* @param{function} mapStateToProps
+* @param{function} mapDispatchToProps
+* */
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

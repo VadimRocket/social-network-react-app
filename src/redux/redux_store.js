@@ -6,14 +6,15 @@ import sidebarReducer from './../storage/reducers/sidebar_reducer';
 
 // take it as your state
 let reducers = combineReducers({
-
+    
     profilePage: profileReducer,
-    messagesPage: dialogsReducer,
-    sideBar: sidebarReducer,
+    // messagesPage: dialogsReducer,
+    // sideBar: sidebarReducer,
 
 });
 
 
 let store = createStore(reducers);
+
 
 export default store;

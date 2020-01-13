@@ -1,16 +1,16 @@
 import React from 'react';
 import s from './ProfileData.module.css';
-
 import profileBg from './pd-images/bg.jpg';
+
 
 const ProfileItem = ({ firstName, lastName, site, education, city, dateBirth, photo }) => {
 
-    return ( 
+    return (
         <>
             <img  src={profileBg}  alt={profileBg}/>
 
             <div className={s.profile}>
-                <div className={s.profileAvatar}> 
+                <div className={s.profileAvatar}>
                     <img src={photo} alt={photo} />
                 </div>
                 <div className={s.profileData}>

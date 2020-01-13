@@ -1,9 +1,17 @@
+
+
 .friendItem {
-    color: #555;
-    min-width: 79px;
+    color: #f1f1f1;
+    min-width: 20px;
     padding-bottom: 20px;
     min-height: 10vh;
+    margin: 0 24px 0 0;
 }
+
+.friendItem:nth-child(4n) {
+    margin-right: 0;
+}
+
 .friendItem img {
     max-width: 30px;
     height: auto;

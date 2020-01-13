@@ -3,44 +3,42 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-
 const Dialogs = (props) => {
 
-    // got the state 
-    let state = props.messagesPage; 
+    // got the state
+    let state  = props.dialogsPage;
+    // let dialogsElements = props.state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}  /> );
+    // let messagesElements = props.state.messages.map( m => <Message message={ m.message } id={m.id}  /> );
 
-    let dialogsElements = state.people.map( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
-    let messagesElements = state.messages.map( m => <Message message={ m.message } id={m.id} /> );  
-    let newMassageText  = state.newMassageText;  // <= value
- 
-    let onUpdateMessage = (e) =>  {
-        let text = e.target.value;
-        props.updateNewMessage(text);
-    }   
+    let dialogsElements = state.dialogs.map( dialog => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} /> );
+    let messagesElements = state.messages.map( m => <Message message={ m.message } key={m.id} id={m.id} /> );
+    let newMessageBody = state.newMessageBody;
 
-    let onAddMessage = () => {
-        props.sendMessage(); 
-    }
+    let onSendMessageClick =() => {
+        props.sendMessage();
+    };
+
+    let onNewMessageChange = (e) =>  {
+        let body = e.target.value;
+        props.updateNewMessageBody(body);
+    };
 
     return ( 
        <div>
             <h3>Dialogs</h3>
 
             <div className={s.dialogs}>
-
                 <div className={s.dialogList}> 
-                    { dialogsElements }             {/* render DialogItems */}
+                    { dialogsElements }   {/* render DialogItems */}
                 </div>
                 
                 <div className={s.messages}>
-                   { messagesElements }             {/* render DialogItems */}
+                   <div> { messagesElements }   {/* render DialogItems */}</div>
                 </div>
-
             </div>
-
             <div className={s.sendMessage}>
-                <textarea  onChange={onUpdateMessage }  value={ newMassageText }  name="text" cols="30" rows="10"></textarea>
-                <button onClick={onAddMessage } > Send</button>
+                <textarea  onChange={onNewMessageChange }  value={ newMessageBody }  name="text"  cols="30" rows="10"></textarea>
+                <button onClick={onSendMessageClick }>Send</button>
             </div>
         </div>
     );
