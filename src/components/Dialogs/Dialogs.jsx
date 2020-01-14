@@ -7,9 +7,6 @@ const Dialogs = (props) => {
 
     // got the state
     let state  = props.dialogsPage;
-    // let dialogsElements = props.state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}  /> );
-    // let messagesElements = props.state.messages.map( m => <Message message={ m.message } id={m.id}  /> );
-
     let dialogsElements = state.dialogs.map( dialog => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} /> );
     let messagesElements = state.messages.map( m => <Message message={ m.message } key={m.id} id={m.id} /> );
     let newMessageBody = state.newMessageBody;

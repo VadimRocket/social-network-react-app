@@ -44,7 +44,7 @@ const dialogsReducer = (state = initialState, action) => { // state = this._stat
     }
 };
 
-// For the dialogs.jsx  - action creators
+// For the dialogsContainer - action creators
 export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 export const updateNewMessageBodyCreator = (body) => ({type: UPDATE_NEW_MESSAGE_BODY, body: body});
 

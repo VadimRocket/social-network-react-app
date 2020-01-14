@@ -18,13 +18,11 @@ const sidebarReducer = (state = initialState, action) => {
         case  SHOW_FRIENDS:
             return {
                 // ...state
-                // state
             };
 
         default:
             return state; // no case
     }
-    return state;
 };
 
 

@@ -2,10 +2,9 @@ import React from 'react';
 import s from './Post.module.css';
 import like from '../heart.svg';
 const Post = (props) => {
-    // console.log(props.message);
     // debugger;
+    console.log(props)
     return (
-       
         <div className={s.itemList}>
             <div className={s.itemList__item}>
                 <h5> {props.name} </h5>
@@ -14,10 +13,8 @@ const Post = (props) => {
             </div>
             <div className={s.itemList__item}>
                  <p> { props.message } </p>
-                
             </div>
         </div>
-
     );
 };
 export default Post;

@@ -10,7 +10,7 @@ let initialState = {
         { id: 2, message: 'It is my first post', like_count: 223, name:'Jack', photo: 'http://avotarov.net/picture/avatar-100/kartinki/905.jpg' },
         { id: 3, message: 'This is my third post', like_count: 131, name:'Harry', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
     ],
-    newPostText: 'Your text',
+    newPostText: '',
     profileInfo: [
          {  id: 1, firstName: 'Alex', lastName: 'Smith',  dateBirth: '2 jun', city:'Mozyr', education: 'BSU', site: 'vm.in',
             photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
@@ -25,7 +25,8 @@ const profileReducer = (state = initialState, action) => {
             let newPost  = { 
                 id: 6, message: state.newPostText,
                 like_count: 0,
-                photo:'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
+                photo:'http://avotarov.net/picture/avatar-100/kartinki/902.jpg',
+                name:'Alex',
             };
             return  {
                 ...state,

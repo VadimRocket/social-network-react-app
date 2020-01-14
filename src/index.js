@@ -7,7 +7,7 @@ import store from './storage/reducers/redux-store';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from "react-redux";
 
-let reRenderAllTree = () => {
+
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store} >
@@ -15,14 +15,6 @@ let reRenderAllTree = () => {
             </Provider>
         </BrowserRouter>, document.getElementById('root')
     );
-};
-
-reRenderAllTree();
-
-store.subscribe( () => {
-    reRenderAllTree();
-});
-
 
 
 // If you want your app to work offline and load faster, you can change
