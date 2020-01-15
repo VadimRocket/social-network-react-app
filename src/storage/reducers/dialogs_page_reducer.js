@@ -22,7 +22,7 @@ let initialState = {
 };
 
 
-const dialogsReducer = (state = initialState, action) => { // state = this._state.dialogsPage
+const dialogsReducer = (state = initialState, action) => { 
 
     // let stateOfCopy = {...state,  // shallow copy  messages: [...state.messages], // deep copy};
 

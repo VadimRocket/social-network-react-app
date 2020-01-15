@@ -1,5 +1,5 @@
 const ADD_POST  = 'ADD-POST';   // type action
-const UPDATE_NEW_POST_TEXT  = 'UPDATE-NEW-POST-TEXT'; // type action
+const UPDATE_NEW_POST_TEXT  = 'UPDATE-NEW-POST-TEXT'; 
 const SHOW_PROFILE_INFO = 'SHOW_PROFILE_INFO';
 
 
