@@ -1,16 +1,11 @@
-
-
 .friendItem {
     color: #f1f1f1;
-    min-width: 20px;
     padding-bottom: 20px;
-    min-height: 10vh;
-    margin: 0 24px 0 0;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-basis: 33%;
 }
 
-.friendItem:nth-child(4n) {
-    margin-right: 0;
-}
 
 .friendItem img {
     max-width: 30px;
