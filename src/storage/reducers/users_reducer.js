@@ -41,7 +41,7 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
         case SET_USERS:
-            // Перезатираю пользователями которые комне пришли из экшиона перезатирая весь массив что был раньше
+            // Перезатираю пользователями которые ко мне пришли из экшиона перезатирая весь массив что был раньше
             // Склеиваю 2 массива: Что был ...state.users  и что пришел из ...action.users
             return  {  ...state, users:[...state.users, ...action.users ] }
         default:
@@ -49,9 +49,10 @@ const usersReducer = (state = initialState, action) => {
     }
 };
 
-// actions creators  for the page all users
+// actions creators  for the page users
 export const followActionCreator = (userId) => ({type: FOLLOW, userId});
 export const unfollowActionCreator = (userId) => ({type: UNFOLLOW, userId});
+
 // устанавливает юзеров из сервака
 export const setUsersActionCreator = (users) => ({type: SET_USERS, users});
 
