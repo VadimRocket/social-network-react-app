@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './MyPosts.module.css';
-import Post from './../Post/Post';
+import Post from './Post/Post';
 
 const MyPosts = (props) => {
-
+ console.log(props)
     let postElements = props.profilePosts.map( post => 
         <Post 
             message={post.message}
@@ -11,13 +11,11 @@ const MyPosts = (props) => {
             photo={post.photo} 
             name={post.name} 
             id={post.id} 
-            key={post.id}
+          
         />   
     );
 
-    /*
-        addPost, onPostChange - callback fu
-    */
+  
     let onAddPost = () => { 
         props.addPost(); 
        
@@ -26,7 +24,7 @@ const MyPosts = (props) => {
     let onPostChange = (e) =>  {
         let text = e.target.value;
         props.updateNewPostText(text);
-        console.log(text);
+        // console.log(text);
     }
     
     return (
@@ -45,3 +43,5 @@ const MyPosts = (props) => {
     );
 }
 export default MyPosts;
+
+
