@@ -1,33 +1,31 @@
 import React from 'react';
 import ProfileItem from './ProfileItem';
-
+// import Post from "../MyPosts/Post/Post";
 
 const ProfileData = (props) => {
 
-  let state = props.profilePage; 
+    let personInformation = props.profileInfo.map( data =>
 
-  let personInformation = state.profileInfo.map( data =>
+        <ProfileItem
+            firstName={data.firstName}
+            lastName={data.lastName}
+            site={data.site}
+            education={data.education}
+            city={data.city}
+            dateBirth={data.dateBirth}
+            photo={data.photo}
+            key={data.id}
+        />
+    );
 
-    <ProfileItem 
-        firstName={data.firstName} 
-        lastName={data.lastName}  
-        site={data.site}
-        education={data.education}
-        city={data.city}
-        dateBirth ={data.dateBirth}
-        photo ={data.photo}
-    />
-  );
-
-  return (
+    return (
         <>
-          { personInformation }
+            { personInformation }
         </>
-  );
+    );
 
-}
+};
 
 export default ProfileData;
-
 
 

@@ -1,9 +1,9 @@
 .friendItem {
-    color: #555;
-    min-width: 79px;
+    color: #f1f1f1;
     padding-bottom: 20px;
-    min-height: 10vh;
+    flex-basis: 33%;
 }
+
 .friendItem img {
     max-width: 30px;
     height: auto;

@@ -1,0 +1,68 @@
+button {
+    min-width: 94px;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    display: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    margin-bottom: 10px;
+    border: 0!important;
+}
+
+button:hover {
+    background: #313131;
+    transition: all .3s ease-out;
+}
+
+.media img {
+    width: 100%;
+    max-width: 78px;
+    height: auto;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+.media {
+    margin-bottom: 10px;
+    background: rgba(244, 244, 244, 0.46);
+    padding: 18px;
+}
+
+.media {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-areas:
+            "img"
+            "location"
+            "status";
+
+}
+.media > .img { grid-area: img;  }
+.media > .location { grid-area: location;  min-width: 100px;}
+.media > .status { grid-area: status; }
+
+.status .status__title, .location__title {
+    font-weight: 600;
+}
+.media .fullname {
+    font-weight: 600;
+}
+
+@media (min-width: 600px) {
+    .media {
+        display: grid;
+        grid-column-gap: 20px;
+        grid-template-columns: 150px 3fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+                "img status location";
+    }
+
+}
+
