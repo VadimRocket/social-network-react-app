@@ -53,7 +53,7 @@ const usersReducer = (state = initialState, action) => {
 export const followActionCreator = (userId) => ({type: FOLLOW, userId});
 export const unfollowActionCreator = (userId) => ({type: UNFOLLOW, userId});
 
-// устанавливает юзеров из сервака
+// устанавливает юзеров из сервера
 export const setUsersActionCreator = (users) => ({type: SET_USERS, users});
 
 export default usersReducer;
