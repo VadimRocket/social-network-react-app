@@ -9,7 +9,7 @@ const Users = (props) => {
             {
                 props.users.map(user => <div key={user.id} className={s.media}>
                     <div className={s.img}>
-                        <div className={s.fullname}>{user.fullName}</div>
+                        <div className={s.fullname}>{user.name}</div>
                         <img src={user.photo} alt="photo"/>
 
                         { user.followed               // unfollow, follow - See: UserContainer.js -> mapDispatchToProps
