@@ -7,7 +7,7 @@ let initialState = {
         { id: 1, status: 'active', followed: false, location: {city: 'Tokyo', country:'Japan'}, name:'Oliver', photo: 'http://avotarov.net/picture/avatar-100/kartinki/903.jpg' },
         { id: 2, status: 'active', followed: true, location:  {city: 'Berlin', country:'Germany'}, name:'Jack', photo: 'http://avotarov.net/picture/avatar-100/kartinki/905.jpg' },
         { id: 3, status: 'active', followed: true,  location: {city: 'Paris', country:'France'},  name:'Harry', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
-        { id: 4, status: 'active', followed: false, location: {city: 'Finland', country:'Akaa'},  name:'Alex', photo: 'http://avotarov.net/picture/avatar-100/kartinki/910.jpg' },
+        { id: 4, status: 'active', followed: false, location: {city: 'Akka', country:'Finland'},  name:'Alex', photo: 'http://avotarov.net/picture/avatar-100/kartinki/910.jpg' },
     ]
 };
 
