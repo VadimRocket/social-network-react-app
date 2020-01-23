@@ -50,7 +50,7 @@ button:hover {
 .status .status__title, .location__title {
     font-weight: 600;
 }
-.media .fullname {
+.media .name {
     font-weight: 600;
 }
 
@@ -65,4 +65,24 @@ button:hover {
     }
 
 }
-
+.pagination {
+    padding: 10px 0;
+}
+.pagination__list  {
+     list-style-type: none;
+     display: flex;
+     flex-wrap: wrap;    
+}
+.pagination__list > li {
+    padding: 10px 19px;
+    color: #fff;
+    background: #000;
+    margin-right: 1px;
+    margin-bottom: 14px;
+}
+.pagination__list > li:hover {
+    cursor: pointer;
+}
+.pagination__list > li.active {
+    background: #777;  
+}
