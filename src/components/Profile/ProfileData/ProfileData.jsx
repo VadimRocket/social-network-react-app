@@ -30,7 +30,7 @@ const ProfileData = (props) => {
                      <p> <span>facebook:</span>  {facebook}</p>      
                      <p> <span>vk:</span> {vk}</p>      
                      <p> <span>twitter: </span> {twitter}</p>      
-                     <p> <span>facebook: </span>{instagram} </p>   
+                     <p> <span>instagram: </span>{instagram} </p>   
                      <p> <span>github: </span> {github}</p>   
                      <p><span>Status: </span>{props.profile.lookingForAJobDescription}</p>
                 </div>
