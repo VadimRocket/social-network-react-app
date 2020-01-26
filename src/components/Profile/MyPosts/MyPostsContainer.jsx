@@ -2,26 +2,6 @@ import {addPostActionCreator, updateNewPostTextCreator } from './../../../storag
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
-// import Dialogs from "../../Dialogs/Dialogs";
-// const MyPostsContainer = (props) => {
-//
-//     let state = props.store.getState();
-//
-//     // addPost - callback fu
-//     let addPost = () => {
-//         props.store.dispatch(addPostActionCreator());
-//     };
-//
-//     let onPostChange = (text) => {
-//         let action = updateNewPostTextCreator(text);
-//         props.store.dispatch(action);
-//     };
-//
-//     return (<MyPosts updateNewPostText={onPostChange} addPost={addPost}
-//                      profilePosts={state.profilePage.profilePosts}
-//                      newPostText={ state.profilePage.newPostText } />);
-//
-// };
 
 let mapStateToProps = (state) => {
     return {

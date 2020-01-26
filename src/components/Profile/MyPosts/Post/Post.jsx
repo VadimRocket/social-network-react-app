@@ -3,7 +3,7 @@ import s from './Post.module.css';
 import like from '../heart.svg';
 const Post = (props) => {
     // debugger;
-    console.log(props)
+    // console.log(props)
     return (
         <div className={s.itemList}>
             <div className={s.itemList__item}>

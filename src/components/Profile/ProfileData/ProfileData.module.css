@@ -30,3 +30,7 @@
     color: rgb(129, 128, 128);
     font-weight: 600;
 }
+.profileData h4 {
+    margin: 10px 0;
+    color: #000;
+}
