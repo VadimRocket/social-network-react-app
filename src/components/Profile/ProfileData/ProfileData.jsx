@@ -18,7 +18,7 @@ const ProfileData = (props) => {
 
             <div className={s.profile}>
                 <div className={s.profileAvatar}>
-                    <img src={ props.profile.photos.small !=null ? props.profile.photos.small : userPhoto } alt='' />
+                    <img src={ props.profile.photos.small !=null ? props.profile.photos.small : userPhoto } alt='profile_photo' />
                 </div>
                 <div className={s.profileData}>
                     <p className={s.profileFio}>
