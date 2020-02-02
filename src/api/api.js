@@ -54,7 +54,7 @@ export const authAPI  = {
         user login
 
         resultCode: required(number)
-        (0 if operation completed successfull, other numbers - some error occured)
+        (0 if opearation completed successfullt, other numbers - some error occured)
         * 
     */
 

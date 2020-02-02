@@ -14,11 +14,11 @@ const ProfileData = (props) => {
 
     return (
         <>
-            <img  src={profileBg}  alt={profileBg}/> From ProfileData
+            <img  src={profileBg}  alt='profilePhoto'/> From ProfileData
 
             <div className={s.profile}>
                 <div className={s.profileAvatar}>
-                    <img src={ props.profile.photos.small !=null ? props.profile.photos.small : userPhoto } alt='profile_photo' />
+                    <img src={ props.profile.photos.small !=null ? props.profile.photos.small : userPhoto } alt='' />
                 </div>
                 <div className={s.profileData}>
                     <p className={s.profileFio}>
@@ -30,7 +30,7 @@ const ProfileData = (props) => {
                      <p> <span>facebook:</span>  {facebook}</p>      
                      <p> <span>vk:</span> {vk}</p>      
                      <p> <span>twitter: </span> {twitter}</p>      
-                     <p> <span>facebook: </span>{instagram} </p>   
+                     <p> <span>instagram: </span>{instagram} </p>   
                      <p> <span>github: </span> {github}</p>   
                      <p><span>Status: </span>{props.profile.lookingForAJobDescription}</p>
                 </div>

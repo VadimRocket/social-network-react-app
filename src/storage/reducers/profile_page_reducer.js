@@ -1,7 +1,9 @@
+import {usersAPI} from '../../api/api';
+
 const ADD_POST  = 'ADD-POST';   // type action
-const UPDATE_NEW_POST_TEXT  = 'UPDATE-NEW-POST-TEXT'; // type action
+const UPDATE_NEW_POST_TEXT  = 'UPDATE-NEW-POST-TEXT';
 const SHOW_PROFILE_INFO = 'SHOW_PROFILE_INFO';
-const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 
 let initialState = {
@@ -49,7 +51,7 @@ const profileReducer = (state = initialState, action) => {
         }
             
            
-        case  SET_USERS_PROFILE:  {
+        case  SET_USER_PROFILE:  {
              return {...state, profile: action.profile}
         }
 
@@ -59,8 +61,6 @@ const profileReducer = (state = initialState, action) => {
                 // state
             };
         }
-           
- 
         default:
             return state; // no case
     }
@@ -79,8 +79,16 @@ export const updateNewPostTextCreator = (text) => {
     }
 };
 
+// actions creators
 export const showProfileInfoCreator = () => ({type: SHOW_PROFILE_INFO});
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 
-export const setUsersProfile = (profile) => ({type: SET_USERS_PROFILE, profile});
+// thunk creator
+export const getUserProfile = (userId) => (dispatch) => {
+      //  get user profile 
+      usersAPI.getProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data));
+    });
+}
 
 export default profileReducer;

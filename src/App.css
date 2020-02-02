@@ -69,6 +69,7 @@ h4 {
   grid-area: c;
   padding: 40px;
   background: #fff;
+  min-height: 90vh;
 }
 
 .content img {
