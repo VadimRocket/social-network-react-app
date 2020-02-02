@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 let Users = (props) => {
 
         // get count buttons - общее кол-во пользователей / размер стр.(число пользователей на странице)
-
         let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);   
         let pages = [];
            for (let i = 1; i <= pagesCount; i++) {
@@ -26,21 +25,12 @@ let Users = (props) => {
             })}
           </ul>
         </nav>
+
         {
             props.users.map(user => <div key={user.id} className={style.media}>
 
                 <div className={style.img}>
-
                     <div className={style.name}>{user.name}</div>
-
-                        {/* <img src={userPhoto} alt="userPhoto" /> */}
-
-
-                { /* NavLink - аналог <a>Link</a>. При наведении на картинку смотри внизу url переходим по урлу /profile/ + user.id */ } 
-                {/* Главно начальное совпадение в <Route path='/profile'> а что дальше не важно всеравно перекинет на страницу /profile чтобы
-                 фиксированный эндпоинд не менялся.
-                */}
-                
                        <NavLink  to={ '/profile/' + user.id }>
                          <img src={ user.photos.small !=null ? user.photos.small : userPhoto } alt='user' />
                        </NavLink>
@@ -48,14 +38,18 @@ let Users = (props) => {
 
                 <div>
                     { user.followed  // unfollow, follow - See: UserContainer.js
-                        ? <button onClick={ () => {props.unfollow(user.id)} }> Unfollow </button>
-                        : <button onClick={ () => {props.follow(user.id)} }> Follow </button>
-                    }
+                        ? <button disabled={props.followInProgress.some( id => id === user.id )} onClick={ () => {
+                              props.unfollow(user.id); // Thunk creator
+                        }}> Unfollow </button>
 
+                        : <button disabled={ props.followInProgress.some( id => id === user.id )} onClick={ () => {
+                              props.follow(user.id);  // Thunk creator
+                        }}> Follow </button>
+                    }
                 </div>
+
                 <div className={style.location}>
                     <span className={style.location__title}>Location: </span>
-                    {/* {user.location.country} / {user.location.city} */}
                 </div>
                 <div className={style.status}>
                    <span className={style.status__title}> Status:</span> {user.status}

@@ -14,7 +14,7 @@ const ProfileData = (props) => {
 
     return (
         <>
-            <img  src={profileBg}  alt={profileBg}/> From ProfileData
+            <img  src={profileBg}  alt='profilePhoto'/> From ProfileData
 
             <div className={s.profile}>
                 <div className={s.profileAvatar}>
