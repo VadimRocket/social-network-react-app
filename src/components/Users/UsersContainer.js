@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import { follow, unfollow, setCurrentPage,toggleFollowInProgress,getUsers} from '../../storage/reducers/users_reducer';
-import React from 'react';
+import React,{Component} from 'react';
 import Users from './Users';
 import Preloader from '../Common/Preloader/Preloader';
 
@@ -10,7 +10,7 @@ import Preloader from '../Common/Preloader/Preloader';
   I throw all props in the Users component
  the component level 1 
 */
-class UsersAPIComponent extends React.Component {
+class UsersAPIComponent extends Component {
 
 /*
 ===================
