@@ -4,6 +4,7 @@ import React,{Component} from 'react';
 import Users from './Users';
 import Preloader from '../Common/Preloader/Preloader';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import {compose} from 'redux';
 
 
 /*
@@ -13,14 +14,7 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 */
 class UsersAPIComponent extends Component {
 
-/*
-===================
- Query Parameters
-===================
- count: (integer - default: 10 - maximum: 100) - totalCount
- page size (how many items will be returned in response)
- page: (integer - default: 1) number of portion of items
-*/
+
     componentDidMount() {
        this.props.getUsers(this.props.currentPage, this.props.pageSize); // cb fn
     }
@@ -71,14 +65,10 @@ let mapStateToProps = (state) => {
     }
 }
 
-
-let withRedirect = withAuthRedirect(UsersAPIComponent);
-
-export default connect(mapStateToProps,
-    {   
-        follow, unfollow, setCurrentPage, toggleFollowInProgress, getUsers
-
-    })(withRedirect);
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowInProgress, getUsers})
+)(UsersAPIComponent);
 
 
 

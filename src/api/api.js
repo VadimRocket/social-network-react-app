@@ -9,6 +9,16 @@ const instance = axios.create({
 
 });
 
+
+/*
+===================
+ Query Parameters
+===================
+ count: (integer - default: 10 - maximum: 100) - totalCount
+ page size (how many items will be returned in response)
+ page: (integer - default: 1) number of portion of items
+*/
+
 export const usersAPI  = {
     getUsers (currentPage = 1, pageSize = 90) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
@@ -57,5 +67,6 @@ export const authAPI  = {
         (0 if opearation completed successfullt, other numbers - some error occured)
         * 
     */
+   
 
 

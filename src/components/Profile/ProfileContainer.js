@@ -4,6 +4,7 @@ import Profile from "./Profile"
 import {connect} from "react-redux";
 import {withRouter} from 'react-router-dom';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import {compose} from 'redux';
 
 class ProfileContainer extends React.Component {
 
@@ -17,7 +18,6 @@ class ProfileContainer extends React.Component {
     }
     
     render() {
-        
         return (
             <Profile {...this.props}  profile={this.props.profile}/>
         );
@@ -28,13 +28,11 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
 });
 
-// caused HOC
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 
-
-// returns other Container Component
-let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
-
-export default connect(mapStateToProps, {getUserProfile} )(WithUrlDataContainerComponent);
+export default compose(
+    connect(mapStateToProps,{getUserProfile}),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer);
 
 
