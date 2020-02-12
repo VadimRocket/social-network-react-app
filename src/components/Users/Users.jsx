@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
 
-        // get count buttons - общее кол-во пользователей / размер стр.(число пользователей на странице)
+        // get count buttons - total number of users / page size.(number of users per page)
         let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);   
         let pages = [];
            for (let i = 1; i <= pagesCount; i++) {
@@ -14,7 +14,7 @@ let Users = (props) => {
 
     return <div>
         <h3>Users</h3>
-        {/* при клике на кнопку мы должны менять currentPage see user_reducer */}
+        {/* when we click on the button we must change currentPage see user_reducer */}
 
         <nav className={style.pagination}>
           <ul className={style.pagination__list}>

@@ -1,6 +1,6 @@
 import {usersAPI,profileAPI} from '../../api/api';
-
-const ADD_POST  = 'ADD_POST';   // type action
+// type actions
+const ADD_POST  = 'ADD_POST';   
 const SHOW_PROFILE_INFO = 'SHOW_PROFILE_INFO';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
