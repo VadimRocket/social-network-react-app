@@ -15,7 +15,7 @@ export const withAuthRedirect = (Component) => {
         }
     }
 
-         // 'second container component'
+        // second container component
     let ConnectedAuthRedirectComponent = connect(mapStateToProps)(RedirectComponent);    
     return ConnectedAuthRedirectComponent;
 }

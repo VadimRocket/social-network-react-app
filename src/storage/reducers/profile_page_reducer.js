@@ -14,8 +14,6 @@ let initialState = {
         { id: 3, message: 'This is my third post', like_count: 131, name:'Harry', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
     ],
 
-
-
     profileInfo: [
          {  id: 1, firstName: 'Alex', lastName: 'Smith',  dateBirth: '2 jun', city:'Mozyr', education: 'BSU', site: 'vm.in',
             photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
@@ -55,10 +53,7 @@ const profileReducer = (state = initialState, action) => {
         }
 
         case  SHOW_PROFILE_INFO: {
-            return {
-                // ...state
-                // state
-            };
+            return {};
         }
         default:
             return state; // no case
@@ -81,21 +76,18 @@ export const getUserProfile = (userId) => (dispatch) => {
 }
 
 export const getStatus = (userId) => (dispatch) => {
-    //  get user profile 
-    // debugger;
+    //  get user status 
     profileAPI.getStatus(userId).then(response => {
-       
-      dispatch(setStatus(response.data));  // когда получу статус я его засетаю
-    //   debugger;
+        dispatch(setStatus(response.data));  // когда получу статус я его засетаю
   });
 }
 // на update status к нам придет in response обьект {resultCode: 1, messages: [Something Wrong], data: {} }   resultCode: 1 - if  error
-                        // указываю статус который надо обновить
+                        // indicate the status that needs to be updated
 export const updateStatus = (status) => (dispatch) => {
     //  get user profile 
     profileAPI.updateStatus(status).then(response => {
         if(response.data.resultCode === 0) {
-            dispatch(setStatus(response.data));  // когда получу статус я его засетаю
+            dispatch(setStatus(response.data));  
         }
   });
 }

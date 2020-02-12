@@ -37,7 +37,7 @@ let Users = (props) => {
                 </div>
 
                 <div>
-                    { user.followed  // unfollow, follow - See: UserContainer.js
+                    { user.followed  // unfollow, follow - See: UsersContainer.js
                         ? <button disabled={props.followInProgress.some( id => id === user.id )} onClick={ () => {
                               props.unfollow(user.id); // Thunk creator
                         }}> Unfollow </button>
