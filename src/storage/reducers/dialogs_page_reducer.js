@@ -1,4 +1,4 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_TEXT';
+
 const SEND_MESSAGE = 'SEND_NEW_MESSAGE';
 
 let initialState = {
@@ -18,7 +18,7 @@ let initialState = {
         { id: 5, message: 'What\'s up?'},
         { id: 6, message: 'Bye-Bye!'}
     ],
-    newMessageBody: "",
+ 
 };
 
 
@@ -27,16 +27,11 @@ const dialogsReducer = (state = initialState, action) => { // state = this._stat
     // let stateOfCopy = {...state,  // shallow copy  messages: [...state.messages], // deep copy};
 
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            return {
-                ...state, // shallow copy
-                newMessageBody: action.body
-            };
+       
         case SEND_MESSAGE:
-            let body = state.newMessageBody;
+            let body = action.newMessageBody;
             return {
                 ...state,
-                newMessageBody:  '',
                 messages:[...state.messages, { id: 7, message: body }] // deep copy
             };
         default:
@@ -45,7 +40,7 @@ const dialogsReducer = (state = initialState, action) => { // state = this._stat
 };
 
 // For the dialogsContainer - action creators
-export const sendMessageCreator = () => ({type: SEND_MESSAGE});
-export const updateNewMessageBodyCreator = (body) => ({type: UPDATE_NEW_MESSAGE_BODY, body: body});
+export const sendMessageCreator = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
+
 
 export default dialogsReducer;

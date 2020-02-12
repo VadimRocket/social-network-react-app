@@ -3,9 +3,10 @@ import s from './ProfileData.module.css';
 import profileBg from './pd-images/bg.jpg';
 import Preloader from '../../Common/Preloader/Preloader';
 import userPhoto from './../../../assets/images/user.jpg';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileData = (props) => {
-    
+    // console.log(props);
     if(!props.profile) {
         return <Preloader />
     }
@@ -20,7 +21,10 @@ const ProfileData = (props) => {
                 <div className={s.profileAvatar}>
                     <img src={ props.profile.photos.small !=null ? props.profile.photos.small : userPhoto } alt='' />
                 </div>
+            
                 <div className={s.profileData}>
+                     {/* profile status */}
+                     <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
                     <p className={s.profileFio}>
                         <span>Name:</span> { props.profile.fullName}
                     </p>

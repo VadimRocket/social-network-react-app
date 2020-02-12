@@ -4,10 +4,10 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileData from "./ProfileData/ProfileData";
 
 const Profile = (props) => {
-    
     return (
         <div className={s.profileWrap}>
-            <ProfileData  profile={props.profile} />   
+         
+            <ProfileData  profile={props.profile} status={props.status} update={props.status}/>   
             <MyPostsContainer store={props.store} />
         </div>
     );

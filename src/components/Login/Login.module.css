@@ -1,0 +1,40 @@
+input {
+    margin: 10px 0;
+}
+
+.formContainer {
+    display: grid;
+    justify-items:center;
+    align-content: center;
+}
+
+.uiForm {
+    position: relative;
+    width: 500px;
+    padding: 60px 50px;
+    margin: 50px auto 0;
+    background: #f1f1f1;
+}
+
+.formRow {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.formRow input {
+    display: block;
+    width: 100%;
+    padding: 0 10px;
+    line-height: 40px;
+    font-family: 'Roboto', sans-serif;
+    background: none;
+    border-width: 0;
+    border-bottom: 2px solid #4a90e2;
+    transition: all 0.2s ease;
+}
+
+ input[type="checkbox"] {
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+} 

@@ -20,6 +20,7 @@ const instance = axios.create({
 */
 
 export const usersAPI  = {
+    // get parameter /users?page
     getUsers (currentPage = 1, pageSize = 90) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data); 
@@ -31,10 +32,25 @@ export const usersAPI  = {
         return instance.delete(`follow/${userId}`);
     },
     getProfile(userId) {
-        return instance.get(`profile/${userId}`);
+         return profileAPI.getProfile(userId); // переделегирование
     }
 }
 
+export const profileAPI  = {
+   
+    getProfile(userId) {
+        return instance.get(`profile/${userId}`);
+    },
+    // userId - uri parameter {userId}
+    getStatus(userId) { 
+        return instance.get(`profile/status/${userId}`);
+    },
+    updateStatus(status) { 
+        // request: body, meida type: application/json, type: object, properties: status(string - maxLength: 300)
+        // 2 param - json object with prop: status
+        return instance.put(`profile/status/`, {status: status});
+    }
+}
 
 export const authAPI  = {
     authMe() { // second param: setting request - cookie

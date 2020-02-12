@@ -27,6 +27,7 @@
     border: 1px solid rgba(209, 209, 209, 0.932); 
     padding: 10px;
     margin-bottom: 20px;    
+    height: 200px;
 }
 
 .sendMessage button {

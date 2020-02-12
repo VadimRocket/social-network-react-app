@@ -1,9 +1,9 @@
-import {usersAPI} from '../../api/api';
+import {usersAPI,profileAPI} from '../../api/api';
 
-const ADD_POST  = 'ADD-POST';   // type action
-const UPDATE_NEW_POST_TEXT  = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST  = 'ADD_POST';   // type action
 const SHOW_PROFILE_INFO = 'SHOW_PROFILE_INFO';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 
 let initialState = {
@@ -14,7 +14,7 @@ let initialState = {
         { id: 3, message: 'This is my third post', like_count: 131, name:'Harry', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
     ],
 
-    newPostText: '',
+
 
     profileInfo: [
          {  id: 1, firstName: 'Alex', lastName: 'Smith',  dateBirth: '2 jun', city:'Mozyr', education: 'BSU', site: 'vm.in',
@@ -22,7 +22,9 @@ let initialState = {
          }
     ],
 
-    profile: null
+    profile: null,
+    status: '',
+ 
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -31,7 +33,8 @@ const profileReducer = (state = initialState, action) => {
 
         case ADD_POST:  {
             let newPost  = { 
-                id: 6, message: state.newPostText,
+                id: 6,
+                message: action.newPostText,
                 like_count: 0,
                 photo:'http://avotarov.net/picture/avatar-100/kartinki/902.jpg',
                 name:'Alex',
@@ -43,14 +46,10 @@ const profileReducer = (state = initialState, action) => {
             }
         }
             
-        case UPDATE_NEW_POST_TEXT: {
-            return {
-                ...state,
-                newPostText: action.newText // newText - obj prop
-            }
+        case  SET_STATUS:  {
+            return {...state, status: action.status}
         }
-            
-           
+
         case  SET_USER_PROFILE:  {
              return {...state, profile: action.profile}
         }
@@ -67,21 +66,11 @@ const profileReducer = (state = initialState, action) => {
 };
 
 // actions creators 
-export const addPostActionCreator = () => {
-    return  {
-        type: ADD_POST
-    }
-};
-export const updateNewPostTextCreator = (text) => {
-    return  {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-};
+export const addPostActionCreator = (newPostText) =>({ type: ADD_POST, newPostText });
 
-// actions creators
 export const showProfileInfoCreator = () => ({type: SHOW_PROFILE_INFO});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const setStatus = (status) => ({type: SET_STATUS, status});
 
 // thunk creator
 export const getUserProfile = (userId) => (dispatch) => {
@@ -90,5 +79,26 @@ export const getUserProfile = (userId) => (dispatch) => {
         dispatch(setUserProfile(response.data));
     });
 }
+
+export const getStatus = (userId) => (dispatch) => {
+    //  get user profile 
+    // debugger;
+    profileAPI.getStatus(userId).then(response => {
+       
+      dispatch(setStatus(response.data));  // когда получу статус я его засетаю
+    //   debugger;
+  });
+}
+// на update status к нам придет in response обьект {resultCode: 1, messages: [Something Wrong], data: {} }   resultCode: 1 - if  error
+                        // указываю статус который надо обновить
+export const updateStatus = (status) => (dispatch) => {
+    //  get user profile 
+    profileAPI.updateStatus(status).then(response => {
+        if(response.data.resultCode === 0) {
+            dispatch(setStatus(response.data));  // когда получу статус я его засетаю
+        }
+  });
+}
+
 
 export default profileReducer;
