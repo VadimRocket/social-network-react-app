@@ -10,8 +10,4 @@ export const maxLengthCreator = (maxLength) => (value) => {
     return undefined;   
 }
 
-// export const maxLength15 = value =>  {
-//     if(value.length > 30) return 'Max length is 15 symbols';
-//     return undefined;
-    
-// }
+
