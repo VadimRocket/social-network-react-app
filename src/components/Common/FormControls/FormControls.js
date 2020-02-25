@@ -7,7 +7,20 @@ export const Textarea = ({input, meta, ...props}) => { // props будут со�
     return (
         <div className={s.formControl + ' ' +  ( hasError ? s.error : '' )}>
              <textarea {...input} {...props}/> 
-               {/*если эл-т был тронут и нет данных  верни спан */}
+               {/*if touched and no data return error */}
+               { hasError && <span>{meta.error}</span> } 
+        </div>
+    )
+}
+
+
+export const Input = ({input, meta, ...props}) => { 
+
+    const hasError = meta.touched && meta.error;
+    return (
+        <div className={s.formControl + ' ' +  ( hasError ? s.error : '' )}>
+             <input {...input} {...props}/> 
+               {/*if touched and no data return error */}
                { hasError && <span>{meta.error}</span> } 
         </div>
     )
