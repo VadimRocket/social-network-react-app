@@ -13,7 +13,7 @@ export const Textarea = ({input, meta, ...props}) => { // props будут со�
     )
 }
 
-
+// need  refactoring
 export const Input = ({input, meta, ...props}) => { 
 
     const hasError = meta.touched && meta.error;
