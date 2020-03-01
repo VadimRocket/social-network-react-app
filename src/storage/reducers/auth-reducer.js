@@ -18,8 +18,6 @@ const authReducer = (state = initialState, action) => {
             return  { 
                 ...state,
                 ...action.data, // create obj data and  properties in it: userId, email, login
-                isAuth: true // if logged
-
             }
         } 
         default:
@@ -28,7 +26,7 @@ const authReducer = (state = initialState, action) => {
 };
 
 // actions creators for the UsersContainer component
-export const setAuthUserData = (userId,email,login) => ({type: SET_USER_DATA, data: {userId,email,login} });
+export const setAuthUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, data: {userId, email, login, isAuth} });
 
 // thunk creator
 export const getAuthUserData = () => (dispatch) => {
@@ -36,14 +34,34 @@ export const getAuthUserData = () => (dispatch) => {
         .then(response => {  
             // debugger;
             if(response.data.resultCode === 0) {
-                let {id,email,login} = response.data.data;
-                dispatch(setAuthUserData(id,email,login));
+                let {id, email, login} = response.data.data;
+                dispatch(setAuthUserData(id, email, login, true));
                 // store.getState().auth
             } 
         });  
 }
 
 
+//  
+export const login = (email, password, rememberMe) => (dispatch) => {
+    authAPI.login(email, password, rememberMe)
+        .then(response => {  
+            // debugger;
+            if(response.data.resultCode === 0) {
+               dispatch(getAuthUserData());
+            } 
+        });  
+}
 
+// logout thunk creator
+export const logout = () => (dispatch) => {
+    authAPI.logout()
+        .then(response => {  
+            // debugger;
+            if(response.data.resultCode === 0) {
+                dispatch(setAuthUserData(null, null, null, false));
+            } 
+        });  
+}
 
 export default authReducer;

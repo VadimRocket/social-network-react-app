@@ -56,13 +56,16 @@ export const authAPI  = {
     authMe() { // second param: setting request - cookie
         return instance.get(`auth/me`);        
     },
-    login(email, password, rememberMe = false, captcha = null) { 
-        return instance.post(`auth/login`, {email,password,rememberMe}).then( response => response.data) 
+    // {email,password,rememberMe} - data object
+    login(email, password, rememberMe = false) {  //, captcha = null
+        // return instance.post(`auth/login`, {email,password,rememberMe}).then( response => response.data);
+        return instance.post(`auth/login`, {email,password,rememberMe});
     },
     logout() {
-        return instance.delete(`auth/login`).then(response => response.data);
+        // return instance.delete(`auth/login`).then(response => response.data);
+        return instance.delete(`auth/login`);  
     }
-}
+}     
 
 
    /**

@@ -3,6 +3,9 @@ import s from './Login.module.css';
 import {reduxForm, Field} from 'redux-form';
 import {required} from '../../utils/validators/validators';
 import {Input} from '../Common/FormControls/FormControls';
+import { connect } from 'react-redux';
+import { login } from '../../storage/reducers/auth-reducer';
+import {Redirect} from 'react-router-dom';
 
 const LoginForm = (props) => {
     return (
@@ -10,19 +13,18 @@ const LoginForm = (props) => {
              {/* Field контейнерная компонента которая рисует другую компоненту приходит из redux-form */}
             <div className={s.formContainer}>
                 <form onSubmit={props.handleSubmit}  className={s.uiForm}>
-                    <h5>LOGIN</h5>
                     <div className={s.formRow}>
-                       <Field  placeholder={'Name'} name={'login'} component={Input} validate={required} />    
+                       <Field  placeholder={'Email'} name={'email'} component={Input} validate={required} />    
                     </div>
                     <div className={s.formRow}> 
-                        <Field  placeholder={'Password'}  name={'password'}  component={Input} validate={required} />
+                        <Field  placeholder={'Password'}  name={'password'} type={'password'} component={Input} validate={required}  />
                     </div>
                     <div> 
                         Remember me   
-                        <Field  className={s.formRow} component={Input}  name={'rememberMe '} type={'checkbox'} validate={required}  />
+                        <Field  className={s.formRow} component={Input}  name={'rememberMe'} type={'checkbox'} validate={required}  />
                     </div>
                     <div> 
-                        <button>Login</button> 
+                        <button>Sign in</button> 
                     </div>
                 </form>
             </div>
@@ -39,8 +41,14 @@ const LoginReduxForm = reduxForm({
 const Login = (props) => {
         // сюда придут все значения из формы
         const onSubmit = (formData) => {
-            console.log(formData);
+            props.login(formData.email, formData.password, formData.rememberMe);
         }
+
+        // if logged 
+        if(props.isAuth) {
+            return <Redirect to={'/profile'} />
+        }
+
     return (
         <>
             <h3>Login</h3>
@@ -49,6 +57,9 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth
+});
+export default connect(mapStateToProps, {login} )(Login);
 
 
