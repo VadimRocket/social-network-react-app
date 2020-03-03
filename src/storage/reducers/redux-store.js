@@ -7,6 +7,7 @@ import usersReducer from "./users_reducer";
 import authReducer from "./auth-reducer";
 import thunkMiddleware  from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
+import appReducer from './app-reducer';
 
 
 let reducers = combineReducers({
@@ -16,6 +17,7 @@ let reducers = combineReducers({
     usersPage: usersReducer,
     auth: authReducer,
     form: formReducer, // we have 1 more form branch in the state
+    app: appReducer,
 });
 // applyMiddleware - промежуточный слой для обработки ф-ций
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
