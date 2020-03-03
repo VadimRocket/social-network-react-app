@@ -11,3 +11,8 @@
     right: 10px;
     font-weight: 600;
 }
+
+.formSummaryError {
+    color: red;
+    padding: 5px;
+}
