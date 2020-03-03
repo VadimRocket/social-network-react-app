@@ -9,7 +9,6 @@ const instance = axios.create({
 
 });
 
-
 /*
 ===================
  Query Parameters
