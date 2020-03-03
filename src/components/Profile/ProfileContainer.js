@@ -36,8 +36,7 @@ let mapStateToProps = (state) => ({
     authorizedUserId: state.auth.userId,
     isAuth: state.auth.isAuth, 
 });
-
-
+18_initialization_app
 export default compose(
     connect(mapStateToProps,{getUserProfile,getStatus,updateStatus}),
     withRouter,
