@@ -5,7 +5,8 @@ import Users from './Users';
 import Preloader from '../Common/Preloader/Preloader';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 import {compose} from 'redux';
-
+import {getAllUsers, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowInProgress} from '../../storage/reducers/users-selectors';
+ 
 
 /*
   makes a request to the server and draws the presentation component; it needs data from the store
@@ -53,15 +54,13 @@ data that we need from the state to us
 * */
 let mapStateToProps = (state) => {
     return {
-        // See the state branches in the redux-store: usersPage: usersReducer file,
-        // the users property will be available in Users.jsx. Values of which are users from state
-        // I take certain parts of the state
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,                    // number of pages
-        totalUsersCount: state.usersPage.totalUsersCount,     // total number of users
-        currentPage: state.usersPage.currentPage,            
-        isFetching: state.usersPage.isFetching,             // preloader
-        followInProgress: state.usersPage.followInProgress
+        // Selectors. See users-selectors.js
+        users: getAllUsers(state),
+        pageSize: getPageSize(state),                // number of pages
+        totalUsersCount:getTotalUsersCount(state),  // total number of users
+        currentPage: getCurrentPage(state),            
+        isFetching: getIsFetching(state), // preloader
+        followInProgress: getFollowInProgress(state),
     }
 }
 
