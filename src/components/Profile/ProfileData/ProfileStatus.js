@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class ProfileStatus extends Component {
     state = {
         editMode: false,
-        status: this.props.status // 1 возми изначально стутус из пропсов
+        status: this.props.status // 1 возьми изначально стутус из пропсов
     }
 
     activateEditMode = () => {
@@ -21,7 +21,7 @@ class ProfileStatus extends Component {
         this.props.updateStatus(this.state.status);   
         
     }
-    componentDidUpdate(prevState, prevProps) {
+    componentDidUpdate(prevProps, prevState) {
 
         if(prevProps.status !== this.props.status) {
             this.setState({
@@ -46,7 +46,7 @@ class ProfileStatus extends Component {
                 <h4>Profile status:</h4>
                 { !this.state.editMode && 
                 //    <div><span onDoubleClick={() => {alert('hey')}}>{this.props.status}</span></div>
-                   <div><span onDoubleClick={this.activateEditMode || "-----"}>{this.props.status}</span></div>
+                   <div><span onDoubleClick={this.activateEditMode}>{this.props.status || "-----"}</span></div>
                 //    <div><span onDoubleClick={ this.activateEditMode.bind(this) }>{this.props.status}</span></div>
                 }
                 

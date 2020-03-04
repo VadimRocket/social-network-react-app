@@ -3,7 +3,7 @@ import s from './ProfileData.module.css';
 import profileBg from './pd-images/bg.jpg';
 import Preloader from '../../Common/Preloader/Preloader';
 import userPhoto from './../../../assets/images/user.jpg';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileData = (props) => {
     // console.log(props);
@@ -23,8 +23,11 @@ const ProfileData = (props) => {
                 </div>
             
                 <div className={s.profileData}>
+                     <h4>Profile</h4>
+                     
                      {/* profile status */}
-                     <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                     <span>Status: <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} /></span>
+
                     <p className={s.profileFio}>
                         <span>Name:</span> { props.profile.fullName}
                     </p>

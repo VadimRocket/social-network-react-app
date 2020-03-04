@@ -1,4 +1,4 @@
-import {usersAPI,profileAPI} from '../../api/api';
+import {profileAPI} from '../../api/api';
 // type actions
 const ADD_POST  = 'ADD_POST';   
 const SHOW_PROFILE_INFO = 'SHOW_PROFILE_INFO';
@@ -43,17 +43,19 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: '',  // clear textarea after click on the btn - add Post
             }
         }
+
+        case  SET_USER_PROFILE:  {
+            return {...state, profile: action.profile}
+        }
             
         case  SET_STATUS:  {
             return {...state, status: action.status}
         }
 
-        case  SET_USER_PROFILE:  {
-             return {...state, profile: action.profile}
-        }
+        
 
         case  SHOW_PROFILE_INFO: {
-            return {};
+            return state;
         }
         default:
             return state; // no case
@@ -67,29 +69,25 @@ export const showProfileInfoCreator = () => ({type: SHOW_PROFILE_INFO});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 
-// thunk creator
-export const getUserProfile = (userId) => (dispatch) => {
-      //  get user profile 
-      usersAPI.getProfile(userId).then(response => {
-        dispatch(setUserProfile(response.data));
-    });
+// thunk creator  get user profile 
+export const getUserProfile = (userId) => async (dispatch) => {
+    let response = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(response.data));
 }
 
-export const getStatus = (userId) => (dispatch) => {
-    //  get user status 
-    profileAPI.getStatus(userId).then(response => {
-        dispatch(setStatus(response.data));  // когда получу статус я его засетаю
-  });
+//  get user status 
+export const getStatus = (userId) => async (dispatch) =>  {
+    let response = await profileAPI.getStatus(userId);
+    dispatch(setStatus(response.data));  // когда получу статус я его засетаю
 }
+
 // на update status к нам придет in response обьект {resultCode: 1, messages: [Something Wrong], data: {} }   resultCode: 1 - if  error
                         // indicate the status that needs to be updated
-export const updateStatus = (status) => (dispatch) => {
-    //  get user profile 
-    profileAPI.updateStatus(status).then(response => {
-        if(response.data.resultCode === 0) {
-            dispatch(setStatus(response.data));  
-        }
-  });
+export const updateStatus = (status) => async (dispatch) => {
+    let response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+    }   
 }
 
 

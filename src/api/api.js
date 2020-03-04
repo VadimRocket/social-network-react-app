@@ -28,19 +28,19 @@ export const usersAPI  = {
     unfollow(userId) {
         return instance.delete(`follow/${userId}`);
     },
-    getProfile(userId) {
-         return profileAPI.getProfile(userId); // переделегирование
-    }
+    // getProfile(userId) {
+    //      return profileAPI.getProfile(userId); // переделегирование
+    // }
 }
 
 export const profileAPI  = {
    
     getProfile(userId) {
-        return instance.get(`profile/${userId}`);
+        return instance.get(`profile/` + userId);
     },
     // userId - uri parameter {userId}
     getStatus(userId) { 
-        return instance.get(`profile/status/${userId}`);
+        return instance.get(`profile/status/` + userId);
     },
     updateStatus(status) { 
         // request: body, media type: application/json, type: object, properties: status(string - maxLength: 300)
