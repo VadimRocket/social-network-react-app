@@ -46,7 +46,7 @@ class ProfileStatus extends Component {
                 <h4>Profile status:</h4>
                 { !this.state.editMode && 
                 //    <div><span onDoubleClick={() => {alert('hey')}}>{this.props.status}</span></div>
-                   <div><span onDoubleClick={this.activateEditMode}>{this.props.status || "-----"}</span></div>
+                   <div><span onDoubleClick={this.activateEditMode}>{this.props.status || "Set status"}</span></div>
                 //    <div><span onDoubleClick={ this.activateEditMode.bind(this) }>{this.props.status}</span></div>
                 }
                 

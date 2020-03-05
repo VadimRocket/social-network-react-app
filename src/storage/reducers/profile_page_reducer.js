@@ -14,12 +14,6 @@ let initialState = {
         { id: 3, message: 'This is my third post', like_count: 131, name:'Harry', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
     ],
 
-    profileInfo: [
-         {  id: 1, firstName: 'Alex', lastName: 'Smith',  dateBirth: '2 jun', city:'Mozyr', education: 'BSU', site: 'vm.in',
-            photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif',
-         }
-    ],
-
     profile: null,
     status: '',
  
@@ -31,7 +25,7 @@ const profileReducer = (state = initialState, action) => {
 
         case ADD_POST:  {
             let newPost  = { 
-                id: 6,
+                id: 4,
                 message: action.newPostText,
                 like_count: 0,
                 photo:'http://avotarov.net/picture/avatar-100/kartinki/902.jpg',
@@ -53,7 +47,6 @@ const profileReducer = (state = initialState, action) => {
         }
 
         
-
         case  SHOW_PROFILE_INFO: {
             return state;
         }
@@ -82,9 +75,9 @@ export const getStatus = (userId) => async (dispatch) =>  {
 }
 
 // на update status к нам придет in response обьект {resultCode: 1, messages: [Something Wrong], data: {} }   resultCode: 1 - if  error
-                        // indicate the status that needs to be updated
+// indicate the status that needs to be updated
 export const updateStatus = (status) => async (dispatch) => {
-    let response = await profileAPI.updateStatus(status);
+    let response = await profileAPI.updateStatus(status);   
     if (response.data.resultCode === 0) {
         dispatch(setStatus(status));
     }   
