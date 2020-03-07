@@ -1,5 +1,4 @@
-const SHOW_FRIENDS = 'SHOW_FRIENDS';
-// let initialState = {};
+const SHOW_FRIENDS = 'social-app/sidebar/SHOW_FRIENDS';
 
 let initialState = {
 
@@ -15,10 +14,10 @@ let initialState = {
 
 const sidebarReducer = (state = initialState, action) => {
     switch (action.type) {
-        case  SHOW_FRIENDS:
-            return {
-                // ...state
-            };
+        // case  SHOW_FRIENDS:
+            // return {
+            //     // ...state
+            // };
         default:
             return state; // no case
     }

@@ -17,12 +17,14 @@ class UsersAPIComponent extends Component {
 
 
     componentDidMount() {
-       this.props.getUsers(this.props.currentPage, this.props.pageSize); // cb fn
+       const {currentPage, pageSize} = this.props;
+       this.props.getUsers(currentPage, pageSize); // cb fn
     }
    
     // at the moment of clicking on the pagination buttons I do ajax request get a new pages
     onPostChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize); // cb fn
+        const {pageSize} = this.props;
+        this.props.getUsers(pageNumber, pageSize); // cb fn
         
     }
 

@@ -12,25 +12,89 @@
 .profileAvatar {
     min-height: 120px;
     min-width: 170px;
-    padding: 0px 30px;
-    padding-left: 5px
+    padding: 0 40px 0 0;
 }
 
 .profileAvatar img {
-    max-width: 120px;
+    max-width: 130px;
     height: auto;
     min-height: 80px;
     width: 100%;
-    border-radius: 50%;
-    /* border: 8px solid #f4f4f4; */
+    border-radius: 50%;  
+}
+
+
+.profileData__item {
+    padding: 0 0 10px 0;
+}
+.profileData__item p {
+    font-weight: 600;
+}
+.profileData__item  span {
+    font-weight: 600;
+}
+.profileData__item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.profileData h4 {
+    margin:  0 0 10px 0;
+    color: #e91e63;
+}
+.profileData__item .jobStatusEnable {
+    color: rgb(13, 34, 100);
+    position: relative;
+}
+.profileData__item .jobStatusEnable::after {
+    content: '\2714';
+    position: absolute;
+    top: -1px;
+    right: -24px;
+    color: #000;
+}
+.profileData__item .jobStatusDisable::after {
+    content: '\2715';
+    color: #000;
+    padding-left: 10px;
+}
+
+.profileData__item textarea {
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    overflow: auto;
+    resize: none;
+    border: 1px solid rgba(209, 209, 209, 0.932);
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 200px;
+}
+
+.inputWrapper {
+    margin-top: 20px;
+    height: 40px;
+    width: 130px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    padding-top: 6px;
+}
+
+.fileInput {
+    color: #fff;
+    cursor: pointer;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    font-size:50px;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);    
     
 }
 
-.profileData span {
-    color: rgb(129, 128, 128);
-    font-weight: 600;
-}
-.profileData h4 {
-    margin: 10px 0;
-    color: #000;
-}

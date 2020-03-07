@@ -18,6 +18,14 @@ let initialState = {
     
 };
 
+const updateObjInArray = (items,itemId, objPropName, newObjProps) => {
+    return items.map(item => {
+        if(item[objPropName] === itemId) {
+            return {...item, ...newObjProps}
+        }
+        return item;
+    })
+}
 
 const usersReducer = (state = initialState, action) => {
 
@@ -26,28 +34,30 @@ const usersReducer = (state = initialState, action) => {
         case  FOLLOW:
             return {
                  ...state,
-                users: state.users.map(u => {
-                    // id пробегаемого юзера === id которого надо зафоловить а он сидит в action.userId
-                    // тогда у этого пользователя мы должны сделать изменения: Скопировать пользователя и вернуть копию конкретного обьекта и поменять
-                    // followed на true  Т.о если ади совпадает то мы возвращаем копию если не совпадает то возвращаем тотже самый обьект - Формирование нового обьекта
-                    if(u.id === action.userId) {
-                        return {...u, followed: true }
-                    }
-                    return u;
-                })
+                 users: updateObjInArray(state.users, action.userId, 'id', {followed: true})
+                // users: state.users.map(u => {
+                //     // id пробегаемого юзера === id которого надо зафоловить а он сидит в action.userId
+                //     // тогда у этого пользователя мы должны сделать изменения: Скопировать пользователя и вернуть копию конкретного обьекта и поменять
+                //     // followed на true  Т.о если ади совпадает то мы возвращаем копию если не совпадает то возвращаем тотже самый обьект - Формирование нового обьекта
+                //     if(u.id === action.userId) {
+                //         return {...u, followed: true }
+                //     }
+                //     return u;
+                // })
             }
         case  UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map(u => {
-                    // id пробегаемого юзера === id которого надо зафоловить а он сидит в action.userId
-                    // тогда у этого пользователя мы должны сделать изменения: Скопировать пользователя и вернуть копию конкретного обьекта и поменять
-                    // followed на false  Т.о если ади совпадает то мы возвращаем копию если не совпадает то возвращаем тотже самый обьект - Формирование нового обьекта
-                    if(u.id === action.userId) {
-                        return {...u, followed: false }
-                    }
-                    return u;
-                })
+                users: updateObjInArray(state.users, action.userId, 'id', {followed: false})
+                // users: state.users.map(u => {
+                //     // id пробегаемого юзера === id которого надо зафоловить а он сидит в action.userId
+                //     // тогда у этого пользователя мы должны сделать изменения: Скопировать пользователя и вернуть копию конкретного обьекта и поменять
+                //     // followed на false  Т.о если ади совпадает то мы возвращаем копию если не совпадает то возвращаем тотже самый обьект - Формирование нового обьекта
+                //     if(u.id === action.userId) {
+                //         return {...u, followed: false }
+                //     }
+                //     return u;
+                // })
             }
         case SET_USERS: {
             // Перезатираю пользователями которые ко мне пришли из экшиона перезатирая весь массив что был раньше
@@ -89,49 +99,50 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 export const toggleFollowInProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOW_PROGRESS, isFetching, userId });
 
 
-// create thunks: getUsers, follow, unfollow
+// create thunks creators getUsers, follow, unfollow
+
 export const getUsers = (page, pageSize) => {
-    return (dispatch) =>  {
+    return async (dispatch) =>  {
 
         dispatch(toggleIsFetching(true));
         dispatch(setCurrentPage(page));
 
         // get the request - get all users
-        usersAPI.getUsers(page, pageSize).then(data => {  
-            dispatch(toggleIsFetching(false));
-            dispatch(setUsers(data.items));
-            dispatch(setUsersTotalCount(data.totalCount));  
-        });  
+        let data = await usersAPI.getUsers(page, pageSize);
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setUsersTotalCount(data.totalCount));  
     }
 }
 
+// util fn
+const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
+
+    dispatch(toggleFollowInProgress(true, userId));
+    
+    let response = await apiMethod(userId);
+
+    if(response.data.responseCode === 0) {  
+        dispatch(actionCreator(userId));
+    }
+
+    dispatch(toggleFollowInProgress(false, userId));
+}
+
 export const follow = (userId) => {
-    return (dispatch) => {
- 
-        dispatch(toggleIsFetching(true));
-        dispatch(toggleFollowInProgress(true, userId));
-                            
-        usersAPI.follow(userId).then(response => {  
-             if(response.data.responseCode === 0) {
-                dispatch(followAC(userId));
-             }
-              dispatch(toggleFollowInProgress(false, userId));
-        })
+    return async (dispatch) => {
+        let apiMethod =  usersAPI.follow.bind(usersAPI);
+        let actionCreator = followAC;
+        followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
+    
     }
 }
  
 export const unfollow = (userId) => {
-    return (dispatch) =>  {
- 
-        dispatch(toggleIsFetching(true));
-        dispatch(toggleFollowInProgress(true, userId));
-                            
-        usersAPI.unfollow(userId).then(response => {  
-            if(response.data.responseCode === 0) {
-                dispatch(unfollowAC(userId));
-            }
-            dispatch(toggleFollowInProgress(false, userId));
-        })
+    return async (dispatch) =>  {
+        let apiMethod =  usersAPI.follow.bind(usersAPI);
+        let actionCreator = unfollowAC;
+        followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
     }
 }
 

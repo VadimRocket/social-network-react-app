@@ -3,12 +3,13 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 import {reduxForm, Field} from 'redux-form';
 import {required,maxLengthCreator} from '../../../utils/validators/validators';
-import {Textarea} from '../../../components/Common/FormControls/FormControls';
+import {Textarea} from '../../Common/FormControls/FormControls';
 
 //validator
 const maxLength15 = maxLengthCreator(15);
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
+
     let postElements = props.profilePosts.map( post =>
         <Post message={post.message}  like_count={post.like_count}
               photo={post.photo} name={post.name} key={post.id} id={post.id} />
@@ -30,7 +31,7 @@ const MyPosts = (props) => {
         </div>
         
     );
-};
+});
 
 const AddNewPostForm = (props) => {
     return (
@@ -42,6 +43,5 @@ const AddNewPostForm = (props) => {
 };
 
 const AddNewPostFormRedux = reduxForm({form: 'ProfileAddNewPostForm'})(AddNewPostForm);
-
 
 export default MyPosts;

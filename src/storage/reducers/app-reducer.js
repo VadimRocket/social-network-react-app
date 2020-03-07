@@ -1,16 +1,15 @@
 import {getAuthUserData} from './auth-reducer';
-
-const SET_INITILIZED_SUC = 'SET_INITILIZED_SUC'; // type action
+// type action
+const SET_INITIALIZED = 'social-app/app/SET_INITIALIZED'; 
 
 let initialState = {
     initialized: false,
 };
 
+// Reducer
 const appReducer = (state = initialState, action) => {
-
     switch (action.type) {
-
-        case SET_INITILIZED_SUC: {
+        case SET_INITIALIZED: {
             return  { 
                 ...state,
                 initialized: true, 
@@ -21,8 +20,8 @@ const appReducer = (state = initialState, action) => {
     }
 };
 
-// action creator
-export const initializedSuccess = () => ({type: SET_INITILIZED_SUC});
+// Action creator
+export const initializedSuccess = () => ({type: SET_INITIALIZED});
 
 // thunk creator App initialization
 export const initializeApp = () => (dispatch) => {
@@ -32,7 +31,6 @@ export const initializeApp = () => (dispatch) => {
       .then(() => {
         dispatch(initializedSuccess());
     })
-  
 }
 
 export default appReducer;

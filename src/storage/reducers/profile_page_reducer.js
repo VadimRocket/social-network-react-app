@@ -1,10 +1,12 @@
 import {profileAPI} from '../../api/api';
-// type actions
-const ADD_POST  = 'ADD_POST';   
-const SHOW_PROFILE_INFO = 'SHOW_PROFILE_INFO';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS';
+import {stopSubmit} from "redux-form";
 
+// Actions
+const ADD_POST  = 'social-app/profile/ADD_POST';   
+const SET_USER_PROFILE = 'social-app/profile/SET_USER_PROFILE';
+const SET_STATUS = 'social-app/profile/SET_STATUS';
+const DELETE_POST = 'social-app/profile/DELETE_POST';
+const SAVE_PHOTO = 'social-app/profile/SAVE_PHOTO';
 
 let initialState = {
 
@@ -20,9 +22,7 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-
     switch (action.type) {
-
         case ADD_POST:  {
             let newPost  = { 
                 id: 4,
@@ -37,51 +37,75 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: '',  // clear textarea after click on the btn - add Post
             }
         }
-
+        case DELETE_POST: {
+            return {
+                ...state,
+                posts: state.posts.filter(post => post.id !== action.postId)
+            };
+        }
         case  SET_USER_PROFILE:  {
             return {...state, profile: action.profile}
         }
-            
         case  SET_STATUS:  {
             return {...state, status: action.status}
         }
-
-        
-        case  SHOW_PROFILE_INFO: {
-            return state;
+        case SAVE_PHOTO: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            };
         }
         default:
-            return state; // no case
+            return state; 
     }
 };
 
-// actions creators 
+// action creators 
 export const addPostActionCreator = (newPostText) =>({ type: ADD_POST, newPostText });
-
-export const showProfileInfoCreator = () => ({type: SHOW_PROFILE_INFO});
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const setStatus = (status) => ({type: SET_STATUS, status});
-
+export const deletePost = (postId) => ({ type: DELETE_POST,  postId });
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
+export const setStatus = (status) => ({ type: SET_STATUS, status });
+export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO, photos});
+   
+   
 // thunk creator  get user profile 
-export const getUserProfile = (userId) => async (dispatch) => {
+export const setProfile = (userId) => async (dispatch) => {
     let response = await profileAPI.getProfile(userId);
     dispatch(setUserProfile(response.data));
 }
 
-//  get user status 
-export const getStatus = (userId) => async (dispatch) =>  {
+// get user status 
+export const getUserStatus = (userId) => async (dispatch) =>  {
     let response = await profileAPI.getStatus(userId);
     dispatch(setStatus(response.data));  // когда получу статус я его засетаю
 }
 
 // на update status к нам придет in response обьект {resultCode: 1, messages: [Something Wrong], data: {} }   resultCode: 1 - if  error
 // indicate the status that needs to be updated
-export const updateStatus = (status) => async (dispatch) => {
+export const updateUserStatus = (status) => async (dispatch) => {
     let response = await profileAPI.updateStatus(status);   
     if (response.data.resultCode === 0) {
         dispatch(setStatus(status));
     }   
 }
 
+export const savePhoto = (file) => async (dispatch) => {
+    let response = await profileAPI.savePhoto(file);
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+};
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const id = getState().auth.id;
+    let response = await profileAPI.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+        dispatch(setProfile(id));
+    } else {
+        let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Error';
+        dispatch(stopSubmit('edit_profile', {_error: message}));
+        return Promise.reject(message)
+    }
+};
 
 export default profileReducer;

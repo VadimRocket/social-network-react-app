@@ -1,5 +1,4 @@
-
-const SEND_MESSAGE = 'SEND_NEW_MESSAGE';
+const SEND_MESSAGE = 'social-app/dialogs/SEND_MESSAGE';
 
 let initialState = {
     dialogs: [
@@ -15,17 +14,14 @@ let initialState = {
         { id: 2, message: 'How are you?'},
         { id: 3, message: 'I\'m fine'},
         { id: 4, message: 'Hi'},
-        { id: 5, message: 'What\'s up?'},
+        { id: 5, message: 'What\'s up?'},   
         { id: 6, message: 'Bye-Bye!'}
     ],
- 
 };
-
 
 const dialogsReducer = (state = initialState, action) => { // state = this._state.dialogsPage
 
     // let stateOfCopy = {...state,  // shallow copy  messages: [...state.messages], // deep copy};
-
     switch (action.type) {
        
         case SEND_MESSAGE:
@@ -39,8 +35,7 @@ const dialogsReducer = (state = initialState, action) => { // state = this._stat
     }
 };
 
-// For the dialogsContainer - action creators
+// For the dialogsContainer - action creator
 export const sendMessageCreator = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
-
 
 export default dialogsReducer;

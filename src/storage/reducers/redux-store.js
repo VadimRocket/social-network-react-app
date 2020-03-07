@@ -22,8 +22,6 @@ let reducers = combineReducers({
 // applyMiddleware - промежуточный слой для обработки ф-ций
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
-
 window.store = store; // check data
-
 
 export default store;

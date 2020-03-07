@@ -1,31 +1,39 @@
 import React from 'react';
 import s from './Login.module.css';
 import style from '../Common/FormControls/FormControls.module.css';
-import {reduxForm, Field} from 'redux-form';
+import {reduxForm} from 'redux-form';
+// import {Field} from 'redux-form';
 import {required} from '../../utils/validators/validators';
-import {Input} from '../Common/FormControls/FormControls';
+import {Input, createFieldFC} from '../Common/FormControls/FormControls';
 import { connect } from 'react-redux';
 import { login } from '../../storage/reducers/auth-reducer';
 import {Redirect} from 'react-router-dom';
 
-const LoginForm = (props) => {
+
+const LoginForm = ({handleSubmit, error}) => {
     return (
         <>    
-             {/* Field контейнерная компонента которая рисует другую компоненту приходит из redux-form */}
+            {/* // see createFieldFC} from '../Common/FormControls/FormControls */}
+            {/* Field контейнерная компонента которая рисует другую компоненту приходит из redux-form */}
             <div className={s.formContainer}>
-                <form onSubmit={props.handleSubmit}  className={s.uiForm}>
+                <form onSubmit={handleSubmit}  className={s.uiForm}>
                     <div className={s.formRow}>
-                       <Field  placeholder={'Email'} name={'email'} component={Input} validate={required} />    
+                    {/*!!!!! createFieldFC(placeholder, name, component, validators, props = {}, text= '') */}
+
+                        {createFieldFC('Email', 'email', Input, [required] )}
+                            {/* <Field  placeholder={'Email'} name={'email'} component={Input} validate={required} />*/}
                     </div>
                     <div className={s.formRow}> 
-                        <Field  placeholder={'Password'}  name={'password'} type={'password'} component={Input} validate={required}  />
+                         {createFieldFC('Password', 'password', Input, [required], {type: 'password' })}
+                        {/* <Field  placeholder={'Password'}  name={'password'} type={'password'} component={Input} validate={required}  /> */}
                     </div>
                     <div> 
-                        Remember me   
-                        <Field  className={s.formRow} component={Input}  name={'rememberMe'} type={'checkbox'} validate={required}  />
+                        {/* Remember me */}
+                        {createFieldFC(null, 'rememberMe', Input, [required],  {type: 'checkbox'}, 'Remember me')}
+                        {/* <Field  className={s.formRow} component={Input}  name={'rememberMe'} type={'checkbox'} validate={required}  /> */}
                     </div>
                     {/* common error for the form */}
-                    { props.error && <div className={style.formSummaryError}>{props.error}</div> }
+                    { error && <div className={style.formSummaryError}>{error}</div> }
 
                     <div> 
                         <button>Sign in</button> 
@@ -56,7 +64,7 @@ const Login = (props) => {
     return (
         <>
             <h3>Login</h3>
-            <LoginReduxForm  onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit}/>
         </>
     )
 }
