@@ -27,11 +27,13 @@ const LoginForm = ({handleSubmit, error}) => {
                          {createFieldFC('Password', 'password', Input, [required], {type: 'password' })}
                         {/* <Field  placeholder={'Password'}  name={'password'} type={'password'} component={Input} validate={required}  /> */}
                     </div>
-                    <div> 
+                   
                         {/* Remember me */}
-                        {createFieldFC(null, 'rememberMe', Input, [required],  {type: 'checkbox'}, 'Remember me')}
+                       
+                        {createFieldFC(null, 'rememberMe', Input, [required],  {type: 'checkbox' }, '')}
+                      
                         {/* <Field  className={s.formRow} component={Input}  name={'rememberMe'} type={'checkbox'} validate={required}  /> */}
-                    </div>
+                   
                     {/* common error for the form */}
                     { error && <div className={style.formSummaryError}>{error}</div> }
 
