@@ -1,28 +1,48 @@
-import React from 'react';
+import React, {useState} from "react";
+
 import style from './Pagination.module.css';
 
 
-const Pagination = ({totalUsersCount, pageSize, currentPage, onPostChanged}) => {
+const Pagination = ({totalUsersCount, pageSize, currentPage, onPostChanged, portionSize=14}) => {
 
-        // get count buttons - total number of users / page size.(number of users per page)
-        let pagesCount = Math.ceil(totalUsersCount / pageSize);   
-        let pages = [];
+    let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i); 
-        }
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    }
+
+    let portionCount = Math.ceil(pagesCount / portionSize);
+    let [portionNumber, setPortionNumber] = useState(1);
+    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+    let rightPortionPageNumber = portionNumber * portionSize;
+
 
     return <div>
         <nav className={style.pagination}>
             <ul className={style.pagination__list}>
-                { pages.map(pageNumber =>  {
-                    return <li key={pageNumber} className={currentPage === pageNumber ? style.active : '' } 
-                    // cb onPostChanged
-                    onClick={(e) => { onPostChanged(pageNumber) }}>{pageNumber}</li> 
+                {portionNumber > 1
+                ? <button className={style.paginationBtn} onClick={() => {
+                    setPortionNumber(portionNumber - 1);
+                }}> &larr; </button>
+                : null}
+            {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                .map(pageNumber => {
+                    return <li  key={`ale-${pageNumber}`} className={currentPage === pageNumber ? style.active : '' }
+                                onClick={(e) => {
+                                    onPostChanged(pageNumber);
+                                }}>{pageNumber} </li>
                 })}
+                {portionCount > portionNumber
+                    ? <button  className={style.paginationBtn} onClick={() => {
+                        setPortionNumber(portionNumber + 1);
+                    }}> &rarr; </button>
+                    : null
+                }
             </ul>
         </nav>
     </div>
-}
+};
+
 
 export default Pagination;

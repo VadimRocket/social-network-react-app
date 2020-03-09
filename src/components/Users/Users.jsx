@@ -8,6 +8,7 @@ const Users = React.memo(({totalUsersCount, pageSize, currentPage, onPostChanged
     return <div>
         <h3>Users</h3>
         {/* when we click on the button we must change currentPage see user_reducer */}
+        {/* totalItemsCount, pageSize, currentPage, onPageChanged, portionSize=10 */}
         <Pagination currentPage={currentPage} onPostChanged={onPostChanged} totalUsersCount={totalUsersCount} pageSize={pageSize} />
         
         {

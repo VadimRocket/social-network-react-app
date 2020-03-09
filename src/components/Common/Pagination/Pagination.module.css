@@ -6,7 +6,7 @@
      display: flex;
      flex-wrap: wrap;    
 }
-.pagination__list > li {
+.pagination__list > li, .pagination .paginationBtn {
     padding: 10px 19px;
     color: #fff;
     background: #000;
@@ -18,4 +18,8 @@
 }
 .pagination__list > li.active {
     background: #777;  
+}
+.pagination .paginationBtn  {
+    min-width: 0;
+    background: #1d85a5;
 }

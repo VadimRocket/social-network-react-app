@@ -16,8 +16,6 @@ class MyPosts extends PureComponent {
     // } 
 
     render() {
-        console.log('RENDER');
-        console.log(this.props);
         let postElements = this.props.profilePosts.map( post =>
             <Post message={post.message}  like_count={post.like_count}
                 photo={post.photo} name={post.name} key={post.id} id={post.id} />
