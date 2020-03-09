@@ -10,7 +10,7 @@ const Header = (props) => {
             <div className={s.loginWrap}>
                 <span className={s.login}>
                     {props.isAuth 
-                        ? <span>{props.login}  <button onClick={props.logout}>Logout</button></span>
+                        ? <span><span className={s.login__name}>{props.login} </span> <button onClick={props.logout}>Logout</button></span>
                         : <NavLink to={'/Login'}>Login</NavLink> }
                 </span>
             </div>
