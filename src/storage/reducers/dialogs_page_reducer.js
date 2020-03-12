@@ -28,7 +28,7 @@ const dialogsReducer = (state = initialState, action) => { // state = this._stat
             let body = action.newMessageBody;
             return {
                 ...state,
-                messages:[...state.messages, { id: 7, message: body }] // deep copy
+                messages:[...state.messages, { id: Math.random(), message: body }] // deep copy
             };
         default:
             return state;

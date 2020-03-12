@@ -5,6 +5,7 @@ import Preloader from '../../Common/Preloader/Preloader';
 import userPhoto from './../../../assets/images/no-photo.svg';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileDataReduxForm from "./ProfileDataForm";
+import Button from '../../Common/Button/Button';
 
 const ProfileData = (props) => {
 
@@ -22,7 +23,7 @@ const ProfileData = (props) => {
 
     const onPhotoSelected = (e) => {
         if (e.target.files) {
-            props.savePhoto(e.target.files[0])
+            props.savePhoto(e.target.files[0]);
         }
     };
 
@@ -93,7 +94,7 @@ const ProfileInfo = ({profile, isOwner, toEditMode}) => {
             </div>
 
             {isOwner
-                ? <button onClick={toEditMode} >edit Profile</button>
+                ? <Button name={'edit Profile'} onClick={toEditMode}/>
                 : null
             }
         </>

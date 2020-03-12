@@ -1,8 +1,12 @@
 import React from 'react';
-import s from "./ProfileData.module.css";
 import {createFieldFC, Input, Textarea} from "../../Common/FormControls/FormControls";
 import {reduxForm} from "redux-form";
-import classes2 from "../../Common/FormControls/FormControls.module.css";
+import Button from '../../Common/Button/Button'
+
+import style from "../../Common/FormControls/FormControls.module.css";
+import s from "./ProfileData.module.css";
+
+
 
 
 const ProfileDataForm = ({handleSubmit, error, profile}) => {
@@ -41,8 +45,8 @@ const ProfileDataForm = ({handleSubmit, error, profile}) => {
                 <h4>About me: </h4>
                 {createFieldFC('About me', 'aboutMe', Textarea, [],)}
             </div>
-            {error ? <span className={classes2.formSummaryError}>{error}</span> : null}
-            <button>Save Profile</button>
+            {error ? <span className={style.formSummaryError}>{error}</span> : null}
+            <Button name={'Save Profile'} />
         </form>
     )
 };

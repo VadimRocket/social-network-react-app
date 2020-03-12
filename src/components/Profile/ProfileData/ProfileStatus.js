@@ -28,8 +28,6 @@ class ProfileStatus extends Component {
                 status: this.props.status 
             });
         }
-
-        console.log('componentDidUpdate');
     }
 
     onStatusChange = (e) => {
@@ -39,7 +37,6 @@ class ProfileStatus extends Component {
     }
 
     render() {
-        console.log('Render');
         return (
             <>
             <div>

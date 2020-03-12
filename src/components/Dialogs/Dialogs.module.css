@@ -1,11 +1,8 @@
 .dialogs {
-
     display: grid;
     /* grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); */
     grid-template-columns: 2fr 10fr;
     grid-gap: 10px;
-    
-
 }
 
 .dialogList, .messages {
@@ -30,22 +27,3 @@
     height: 200px;
 }
 
-.sendMessage button {
-    padding:10px 20px;
-    background: #000;
-    color: #fff;
-    display: inherit;
-    cursor: pointer;
-    outline: none;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -ms-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    margin-bottom: 10px;
-    border: 0;
-}
-.sendMessage button:hover {
-    background: #313131;
-    transition: all .3s ease-out;
-}

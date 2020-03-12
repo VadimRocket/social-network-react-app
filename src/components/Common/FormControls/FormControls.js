@@ -31,7 +31,6 @@ export const createFieldFC = ( placeholder, name, component, validators, props =
             name={name} 
             validate={validators} 
             component={component}  
-          
             text={text}
             {...props}
         /> {text}

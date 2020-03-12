@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Users.module.css';
 import userPhoto from './../../assets/images/no-photo.svg'
 import { NavLink } from 'react-router-dom';
+import Button from '../Common/Button/Button';
 
 
 const User = ({user, followInProgress, unfollow, follow}) => {
@@ -17,13 +18,16 @@ const User = ({user, followInProgress, unfollow, follow}) => {
 
             <div>
                 { user.followed  // unfollow, follow - See: UsersContainer.js
-                    ? <button disabled={ followInProgress.some( id => id === user.id )} onClick={ () => {
+                    ?   <Button name={'Unfollow'}
+                            disabled={ followInProgress.some( id => id === user.id )} onClick={ () => {
                             unfollow(user.id); // Thunk creator
-                    }}> Unfollow </button>
-
-                    : <button disabled={ followInProgress.some( id => id === user.id )} onClick={ () => {
-                            follow(user.id);  // Thunk creator
-                    }}> Follow </button>
+                        }}/> 
+                  
+                    :   <Button name={'Follow'} disabled={ followInProgress.some( id => id === user.id )} onClick={ () => {
+                             follow(user.id);  // Thunk creator
+                        }} />
+                    
+                    
                 }
             </div>
 

@@ -8,6 +8,7 @@ import {Input, createFieldFC} from '../Common/FormControls/FormControls';
 import { connect } from 'react-redux';
 import { login } from '../../storage/reducers/auth-reducer';
 import {Redirect} from 'react-router-dom';
+import Button from '../Common/Button/Button';
 
 
 const LoginForm = ({handleSubmit, error}) => {
@@ -18,10 +19,10 @@ const LoginForm = ({handleSubmit, error}) => {
             <div className={s.formContainer}>
                 <form onSubmit={handleSubmit}  className={s.uiForm}>
                     <div className={s.formRow}>
-                    {/*!!!!! createFieldFC(placeholder, name, component, validators, props = {}, text= '') */}
+                        {/*!!!!! createFieldFC(placeholder, name, component, validators, props = {}, text= '') */}
 
                         {createFieldFC('Email', 'email', Input, [required] )}
-                            {/* <Field  placeholder={'Email'} name={'email'} component={Input} validate={required} />*/}
+                        {/* <Field  placeholder={'Email'} name={'email'} component={Input} validate={required} />*/}
                     </div>
                     <div className={s.formRow}> 
                          {createFieldFC('Password', 'password', Input, [required], {type: 'password' })}
@@ -29,17 +30,12 @@ const LoginForm = ({handleSubmit, error}) => {
                     </div>
                    
                         {/* Remember me */}
-                       
                         {createFieldFC(null, 'rememberMe', Input, [required],  {type: 'checkbox' }, '')}
-                      
+        
                         {/* <Field  className={s.formRow} component={Input}  name={'rememberMe'} type={'checkbox'} validate={required}  /> */}
-                   
-                    {/* common error for the form */}
+                        {/* common error for the form */}
                     { error && <div className={style.formSummaryError}>{error}</div> }
-
-                    <div> 
-                        <button>Sign in</button> 
-                    </div>
+                    <Button name={'Sign in'} />        
                 </form>
             </div>
         </>

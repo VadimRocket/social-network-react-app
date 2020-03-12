@@ -4,7 +4,6 @@ import SideNav from "./SideNav";
 
 
 let mapStateToProps = (state) => {
-    // console.log(state)
     return {
         friends: state.sidebar.friends
     }

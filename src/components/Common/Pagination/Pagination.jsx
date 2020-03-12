@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import style from './Pagination.module.css';
 
@@ -22,9 +22,9 @@ const Pagination = ({totalUsersCount, pageSize, currentPage, onPostChanged, port
         <nav className={style.pagination}>
             <ul className={style.pagination__list}>
                 {portionNumber > 1
-                ? <button className={style.paginationBtn} onClick={() => {
+                ? <li className={style.paginationBtn} onClick={() => {
                     setPortionNumber(portionNumber - 1);
-                }}> &larr; </button>
+                }}> &larr; </li>
                 : null}
             {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                 .map(pageNumber => {
@@ -34,9 +34,9 @@ const Pagination = ({totalUsersCount, pageSize, currentPage, onPostChanged, port
                                 }}>{pageNumber} </li>
                 })}
                 {portionCount > portionNumber
-                    ? <button  className={style.paginationBtn} onClick={() => {
+                    ? <li  className={style.paginationBtn} onClick={() => {
                         setPortionNumber(portionNumber + 1);
-                    }}> &rarr; </button>
+                    }}> &rarr; </li>
                     : null
                 }
             </ul>

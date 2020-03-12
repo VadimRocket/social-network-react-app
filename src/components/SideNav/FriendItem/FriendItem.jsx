@@ -1,11 +1,11 @@
 import React from 'react';
-import s from './../FriendItem/FriendItem.module.css';
+import style from './../FriendItem/FriendItem.module.css';
 
-const FriendItem = (props) => {
+const FriendItem = ({name, photo}) => {
     return (
-        <div className={s.friendItem}>
-            <img src={props.photo} alt={ props.name }  />
-            <p> { props.name } </p>
+        <div className={style.friendItem}>
+            <img src={photo} alt='name'  />
+            <p> { name } </p>
         </div>
     );
 };

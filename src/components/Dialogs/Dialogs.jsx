@@ -6,6 +6,7 @@ import {Redirect} from 'react-router-dom';
 import {reduxForm, Field} from 'redux-form';
 import {required,maxLengthCreator} from '../../utils/validators/validators';
 import {Textarea} from '../../components/Common/FormControls/FormControls';
+import Button from '../Common/Button/Button';
 
 const Dialogs = (props) => {
 
@@ -19,11 +20,10 @@ const Dialogs = (props) => {
     if(!props.isAuth) return <Redirect to={'/login'} /> 
 
     const addNewMessage = (values) => {
-        // alert(values.newMessageBody);
         props.sendMessage(values.newMessageBody);
     }
     return ( 
-       <div>
+       <>
             <h3>Dialogs</h3>
 
             <div className={s.dialogs}>
@@ -38,7 +38,7 @@ const Dialogs = (props) => {
             <div className={s.sendMessage}>
                 <AddMessageReduxForm  onSubmit={addNewMessage} />
             </div>
-        </div>
+        </>
     );
 };
 
@@ -51,7 +51,7 @@ const AddMessageForm = (props) => {
             <Field component={Textarea}
              validate={[required,maxLength100]}
              name='newMessageBody'  placeholder='Enter your message'  />
-            <button>Send</button>
+            <Button name={'Send'} />
         </form>
     )
 }

@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className={s.footer}>
             <nav>
-               <ul>
+                <ul>
                     <li className={s.item}><NavLink to="/profile" activeClassName={s.active}>Profile</NavLink></li>
                     <li className={s.item}><NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink></li>
                     <li className={s.item}><NavLink to="/music" activeClassName={s.active}>Music</NavLink></li>
