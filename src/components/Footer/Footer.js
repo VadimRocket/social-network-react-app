@@ -13,7 +13,7 @@ const Footer = () => {
                     <li className={s.item}><NavLink to="/settings" activeClassName={s.active}>Settings</NavLink></li>
                 </ul>
             </nav>
-       </footer>
+        </footer>
     );
 }
 

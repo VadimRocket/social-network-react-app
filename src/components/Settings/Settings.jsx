@@ -1,16 +1,12 @@
-import React from 'react';
-import s from './Settings.module.css';
+import React from "react";
+import s from "./Settings.module.css";
 
-
-const Settings = (props) => {
-
-    return (
-        <div className={s.settingsWrap}>
-            <h3>Settings</h3>
-        </div>
-    );
+const Settings = props => {
+   return (
+      <div className={s.settingsWrap}>
+         <h3>Settings</h3>
+      </div>
+   );
 };
-
-
 
 export default Settings;

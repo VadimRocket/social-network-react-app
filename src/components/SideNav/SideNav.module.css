@@ -7,14 +7,16 @@
     background-size: cover;
     min-width: 280px;
 }
+
 .sidebarWrap h4 {
     margin-bottom: 30px;
 }
+
 .nav {
     grid-area: n;
     margin-bottom: 40px;
-  }
-  
+}
+
 .nav ul {
     list-style-type: none;
     padding-left: 0;
@@ -23,26 +25,28 @@
 .nav ul li a {
     text-decoration: none;
     color: #fff;
-    transition:  all .1s ease-out;
-    -webkit-transition:  all .1s ease-out;
-    -moz-transition:  all .1s ease-out;
-    -ms-transition:  all .1s ease-out;
-    -o-transition:  all .1s ease-out;
+    transition: all .1s ease-out;
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -ms-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
     letter-spacing: 0.1ex;
-   
+
 }
 
 .nav ul li a:hover {
-    transition:  all .1s ease-out;
-    -webkit-transition:  all .1s ease-out;
-    -moz-transition:  all .1s ease-out;
-    -ms-transition:  all .1s ease-out;
-    -o-transition:  all .1s ease-out;
+    transition: all .1s ease-out;
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -ms-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
     color: #555;
 }
+
 .nav ul li {
     padding-bottom: 20px;
 }
+
 .item a.active {
     color: rgba(17, 10, 10, 0.932);
     font-weight: 700;

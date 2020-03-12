@@ -1,26 +1,26 @@
 .header {
-    grid-area: h;
-    background: #2b2a2a;
-    color: #000;
-    height: 65px;
-    position:-webkit-sticky; 
-    position:sticky; 
-    top:0;
-    z-index: 1;
-  }
+  grid-area: h;
+  background: #2b2a2a;
+  color: #000;
+  height: 65px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 
 .header img {
-    max-width: 80px;
-    height: auto;
-    top: 4px;
-    left: 14px;
-    position: absolute; 
+  max-width: 80px;
+  height: auto;
+  top: 4px;
+  left: 14px;
+  position: absolute;
 }
 
 .loginWrap {
   display: flex;
   align-items: center;
-  justify-content:flex-end;
+  justify-content: flex-end;
   height: 65px;
   color: #fff;
   margin-right: 40px;
@@ -32,10 +32,12 @@
   margin-right: 40px;
   transition: all .3s ease-in;
 }
+
 .login a:hover {
-  color: #61dafb;;
+  color: #61dafb;
+  ;
   transition: all .3s ease-in;
- 
+
 }
 
 .login .login__name {

@@ -5,25 +5,32 @@
     grid-gap: 10px;
 }
 
-.dialogList, .messages {
+.dialogList,
+.messages {
     color: #000;
     line-height: 2;
-    
-}    
-.dialogList a, .message {
-    padding-bottom: 10px;
-    text-decoration: none;    
-}
-.sendMessage {margin: 20px 0;}
-.sendMessage textarea {
-    width:100%;
-    font-size: 16px;
-    outline: none; /*Remove the blue glow*/
-    overflow: auto;
-    resize: none;
-    border: 1px solid rgba(209, 209, 209, 0.932); 
-    padding: 10px;
-    margin-bottom: 20px;    
-    height: 200px;
+
 }
 
+.dialogList a,
+.message {
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+.sendMessage {
+    margin: 20px 0;
+}
+
+.sendMessage textarea {
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    /*Remove the blue glow*/
+    overflow: auto;
+    resize: none;
+    border: 1px solid rgba(209, 209, 209, 0.932);
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 200px;
+}

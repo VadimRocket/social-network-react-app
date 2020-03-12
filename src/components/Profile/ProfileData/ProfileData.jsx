@@ -23,7 +23,7 @@ const ProfileData = (props) => {
 
     const onPhotoSelected = (e) => {
         if (e.target.files) {
-            props.savePhoto(e.target.files[0]);
+            props.savePhoto(e.target.files[0])
         }
     };
 

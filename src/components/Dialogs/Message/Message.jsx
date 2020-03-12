@@ -1,8 +1,8 @@
-import React from 'react';
-import s from './Message.module.css';
+import React from "react";
+import s from "./Message.module.css";
 
-const Message = (props) => {
-    return  <div className={s.massage}> {props.message} </div>
-}
+const Message = props => {
+   return <div className={s.massage}> {props.message} </div>;
+};
 
 export default Message;

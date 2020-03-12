@@ -5,31 +5,32 @@
 }
 
 .postWrap h2 {
-    font-size: 22px;  
+    font-size: 22px;
     margin: 20px 0;
 }
+
 .postWrap .posts {
     margin: 30px 0;
 }
 
-.postWrap fieldset, .postWrap button {
-    border: 0!important;
+.postWrap fieldset,
+.postWrap button {
+    border: 0 !important;
 }
 
 .postWrap textarea {
-    width:100%;
+    width: 100%;
     font-size: 16px;
-    outline: none; /*Remove the blue glow*/
+    outline: none;
+    /*Remove the blue glow*/
     overflow: auto;
     resize: none;
-    border: 1px solid rgba(209, 209, 209, 0.932); 
+    border: 1px solid rgba(209, 209, 209, 0.932);
     padding: 10px;
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
     min-height: 200px;
 }
 
 .posts {
- background: transparent;
+    background: transparent;
 }
-
-

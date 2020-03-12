@@ -1,4 +1,3 @@
-
 .media img {
     width: 100%;
     max-width: 78px;
@@ -17,18 +16,30 @@
     display: grid;
     grid-column-gap: 20px;
     grid-template-areas:
-            "img"
-            "location"
-            "status";
+        "img"
+        "location"
+        "status";
 
 }
-.media > .img { grid-area: img;  }
-.media > .location { grid-area: location;  min-width: 100px;}
-.media > .status { grid-area: status; }
 
-.status .status__title, .location__title {
+.media>.img {
+    grid-area: img;
+}
+
+.media>.location {
+    grid-area: location;
+    min-width: 100px;
+}
+
+.media>.status {
+    grid-area: status;
+}
+
+.status .status__title,
+.location__title {
     font-weight: 600;
 }
+
 .media .name {
     font-weight: 600;
 }
@@ -40,7 +51,7 @@
         grid-template-columns: 150px 3fr;
         grid-template-rows: auto 1fr auto;
         grid-template-areas:
-                "img status location";
+            "img status location";
     }
 
 }

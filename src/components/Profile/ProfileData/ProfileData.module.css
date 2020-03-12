@@ -6,7 +6,7 @@
     -ms-flex-direction: row;
     justify-content: flex-start;
     margin: 40px 0 20px;
-    
+
 }
 
 .profileAvatar {
@@ -20,31 +20,37 @@
     height: auto;
     min-height: 80px;
     width: 100%;
-    border-radius: 50%;  
+    border-radius: 50%;
 }
 
 
 .profileData__item {
     padding: 0 0 10px 0;
 }
+
 .profileData__item p {
     font-weight: 600;
 }
-.profileData__item  span {
+
+.profileData__item span {
     font-weight: 600;
 }
+
 .profileData__item ul {
     list-style-type: none;
     padding-left: 0;
 }
+
 .profileData h4 {
-    margin:  0 0 10px 0;
+    margin: 0 0 10px 0;
     color: #e91e63;
 }
+
 .profileData__item .jobStatusEnable {
     color: rgb(13, 34, 100);
     position: relative;
 }
+
 .profileData__item .jobStatusEnable::after {
     content: '\2714';
     position: absolute;
@@ -52,6 +58,7 @@
     right: -24px;
     color: #000;
 }
+
 .profileData__item .jobStatusDisable::after {
     content: '\2715';
     color: #000;
@@ -79,7 +86,7 @@
     cursor: pointer;
     text-align: center;
     border-radius: 5px;
-    background: #4676D7;   
+    background: #4676D7;
     color: #fff;
     padding-top: 6px;
     transition: all .2s linear;
@@ -93,13 +100,12 @@
 .fileInput {
     cursor: pointer;
     height: 100%;
-    position:absolute;
+    position: absolute;
     top: 0;
     right: 0;
     z-index: 99;
-    font-size:50px;
+    font-size: 50px;
     opacity: 0;
     -moz-opacity: 0;
-    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);      
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
 }
-
