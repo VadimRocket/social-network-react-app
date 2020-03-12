@@ -19,7 +19,6 @@ const ProfileContainer = React.lazy( () => import('./components/Profile/ProfileC
 const DialogsContainer = React.lazy( () => import('./components/Dialogs/DialogsContainer')); 
 const UsersContainer = React.lazy( () => import('./components/Users/UsersContainer')); 
 
- 
 class App extends Component {
     componentDidMount() {
       this.props.initializeApp(); // thunk creator. the point of entry
