@@ -1,7 +1,14 @@
-.formControl {position: relative;}
-.formControl.error input, 
+.formControl {
+    position: relative;
+}
+
+.formControl input {
+    padding: 10px;
+}
+
+.formControl.error input,
 .formControl.error textarea {
-    border:  1px solid #f00;
+    border: 1px solid #f00;
 }
 
 .formControl.error span {
