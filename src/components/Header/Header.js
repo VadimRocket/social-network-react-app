@@ -13,7 +13,7 @@ const Header = ({isAuth, login, logout}) => {
                     { isAuth 
                         ? <span><span className={s.login__name}>{login} </span>
                           <Button name={'Logout'} onClick={logout} /> </span>
-                        : <NavLink to={'/Login'}>Login</NavLink> }
+                        : <NavLink to={'/login'}>Login</NavLink> }
                 </span>
             </div>
         </header>

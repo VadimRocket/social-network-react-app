@@ -25,8 +25,8 @@ export const Input = (props) => {
     return <FormControl {...props}>  <input {...input} {...restProps} /></FormControl>
 }
       
-export const createFieldFC = ( placeholder, name, component, validators, props = {}, text= '') => (
-    <>
+export const createFieldFC = ( placeholder, name, component, validators, props = {}, text = '') => (
+    <>  {/* Field контейнерная компонента которая рисует другую компоненту приходит из redux-form */}
         <Field placeholder={placeholder}
             name={name} 
             validate={validators} 

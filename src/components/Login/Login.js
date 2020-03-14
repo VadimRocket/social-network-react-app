@@ -2,37 +2,32 @@ import React from 'react';
 import s from './Login.module.css';
 import style from '../Common/FormControls/FormControls.module.css';
 import {reduxForm} from 'redux-form';
-// import {Field} from 'redux-form';
 import {required} from '../../utils/validators/validators';
-import {Input, createFieldFC} from '../Common/FormControls/FormControls';
+import { Input, createFieldFC } from '../Common/FormControls/FormControls';
 import { connect } from 'react-redux';
 import { login } from '../../storage/reducers/auth-reducer';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Button from '../Common/Button/Button';
 
-
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({ handleSubmit, error, captcha }) => {
     return (
         <>    
             {/* // see createFieldFC} from '../Common/FormControls/FormControls */}
-            {/* Field контейнерная компонента которая рисует другую компоненту приходит из redux-form */}
+            {/*!!!!! createFieldFC(placeholder, name, component, validators, props = {}, text= '') */}
             <div className={s.formContainer}>
                 <form onSubmit={handleSubmit}  className={s.uiForm}>
                     <div className={s.formRow}>
-                        {/*!!!!! createFieldFC(placeholder, name, component, validators, props = {}, text= '') */}
-
-                        {createFieldFC('Email', 'email', Input, [required] )}
-                        {/* <Field  placeholder={'Email'} name={'email'} component={Input} validate={required} />*/}
+                        {createFieldFC( 'Email', 'email', Input, [required] )}
                     </div>
                     <div className={s.formRow}> 
-                         {createFieldFC('Password', 'password', Input, [required], {type: 'password' })}
-                        {/* <Field  placeholder={'Password'}  name={'password'} type={'password'} component={Input} validate={required}  /> */}
+                         {createFieldFC( 'Password', 'password', Input, [required], {type: 'password' })}
                     </div>
-                   
-                        {/* Remember me */}
-                        {createFieldFC(null, 'rememberMe', Input, [required],  {type: 'checkbox' }, '')}
-        
-                        {/* <Field  className={s.formRow} component={Input}  name={'rememberMe'} type={'checkbox'} validate={required}  /> */}
+                        {/* Remember me checkbox*/}
+                        {createFieldFC( null, 'rememberMe', Input, [required], {type: 'checkbox' })}
+
+                        {/* captcha */}
+                        { captcha  && <img src={captcha} alt='captcha'/> }
+                        { captcha &&  createFieldFC( 'Symbols', 'captcha', Input, [required], {} )}
                         {/* common error for the form */}
                     { error && <div className={style.formSummaryError}>{error}</div> }
                     <Button name={'Sign in'} />        
@@ -48,28 +43,30 @@ const LoginReduxForm = reduxForm({
   })(LoginForm);
   // store.getState().form  
 
-const Login = (props) => {
+const Login = ({login, isAuth, captcha}) => {
+
         // сюда придут все значения из формы
         const onSubmit = (formData) => {
-            props.login(formData.email, formData.password, formData.rememberMe);
+            login(formData.email, formData.password, formData.rememberMe, formData.captcha);
         }
 
         // if logged 
-        if(props.isAuth) {
+        if(isAuth) {
             return <Redirect to={'/profile'} />
         }
-
     return (
         <>
             <h3>Login</h3>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captcha={captcha} />        
         </>
     )
 }
 
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    captcha: state.auth.captcha,
+    isAuth: state.auth.isAuth,
 });
-export default connect(mapStateToProps, {login} )(Login);
+
+export default connect( mapStateToProps, {login} )(Login);
 
 

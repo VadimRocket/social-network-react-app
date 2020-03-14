@@ -25,22 +25,23 @@
 .nav ul li a {
     text-decoration: none;
     color: #fff;
-    transition: all .1s ease-out;
-    -webkit-transition: all .1s ease-out;
-    -moz-transition: all .1s ease-out;
-    -ms-transition: all .1s ease-out;
-    -o-transition: all .1s ease-out;
-    letter-spacing: 0.1ex;
-
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    letter-spacing: .1ex;
 }
 
 .nav ul li a:hover {
-    transition: all .1s ease-out;
-    -webkit-transition: all .1s ease-out;
-    -moz-transition: all .1s ease-out;
-    -ms-transition: all .1s ease-out;
-    -o-transition: all .1s ease-out;
-    color: #555;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    color: rgb(34, 34, 34);
+    padding-left: 3px;
+    font-weight: 700;
 }
 
 .nav ul li {
@@ -53,8 +54,16 @@
 }
 
 .friendsContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
