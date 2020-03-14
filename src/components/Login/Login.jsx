@@ -65,8 +65,8 @@ const Login = ({ login, isAuth, captcha }) => {
    }
    return (
       <>
-         <h3>Login</h3>
-         <LoginReduxForm onSubmit={onSubmit} captcha={captcha} />
+        <h3>Login</h3>
+        <LoginReduxForm onSubmit={onSubmit} captcha={captcha} />
       </>
    );
 };

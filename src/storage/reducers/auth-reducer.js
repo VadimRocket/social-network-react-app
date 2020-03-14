@@ -9,8 +9,9 @@ let initialState = {
    email: null,
    login: null,
    isAuth: false,
-   captcha : null // if null, captcha isn't required
+   captcha : null // if null, captcha isn't required.
 };
+
 // Reducer
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
