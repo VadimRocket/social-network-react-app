@@ -8,7 +8,7 @@
 
 .formControl.error input,
 .formControl.error textarea {
-    border: 1px solid #f00;
+    border-bottom: 2px solid #f00;
 }
 
 .formControl.error span {
@@ -23,3 +23,4 @@
     color: red;
     padding: 5px;
 }
+
