@@ -1,48 +1,6 @@
 .footer {
-    grid-area: f;
-    color: #777;
-    min-height: 80px;
-    background: #363636;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-}
-
-footer nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    list-style-type: none;
-
-}
-
-
-footer nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 20px 10px 20px;
-    transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -ms-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-}
-
-footer nav ul li a:hover {
-    margin: 0 5px;
-
-    transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -ms-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    color: #fff;
-    background: rgba(216, 29, 29, 0.233);
-}
-
-.item a.active {
-    background: rgba(216, 29, 29, 0.233);
+  grid-area: f;
+  color: #777;
+  background: #363636;
+  padding: 30px;
 }

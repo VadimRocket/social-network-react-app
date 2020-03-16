@@ -7,13 +7,14 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  padding: 0 20px;
 }
 
 .header img {
   max-width: 80px;
   height: auto;
   top: 4px;
-  left: 14px;
+  left: 0;
   position: absolute;
 }
 
@@ -23,21 +24,22 @@
   justify-content: flex-end;
   height: 65px;
   color: #fff;
-  margin-right: 40px;
 }
-
+@media only screen and (min-width: 768px) {
+  .loginWrap {
+    margin-right: 20px;
+  }
+}
 .login a {
   text-decoration: none;
   color: #fff;
   margin-right: 40px;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .login a:hover {
   color: #61dafb;
-  ;
-  transition: all .3s ease-in;
-
+  transition: all 0.3s ease-in;
 }
 
 .login .login__name {

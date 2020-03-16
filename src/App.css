@@ -94,7 +94,7 @@ h3 {
 
 h4 {
   font-size: 21px;
-  letter-spacing: .1ex;
+  letter-spacing: 0.1ex;
   color: #fff;
 }
 
@@ -102,19 +102,43 @@ h4 {
   display: grid;
   min-height: 100vh;
   grid-template-areas:
-    "h h"
-    "n c"
-    "f f";
-
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+    "h"
+    "n"
+    "c"
+    "f";
 }
 
 .content {
   grid-area: c;
-  padding: 40px;
+  padding: 20px;
   background: #fff;
   min-height: 90vh;
+}
+
+@media only screen and (min-width: 768px) {
+  .appWrapper {
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas:
+      "h h"
+      "n c"
+      "f f";
+
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+  }
+
+  .header,
+  .footer,
+  .content,
+  .sidebarWrap {
+    padding: 40px;
+  }
+
+  .content {
+    padding: 40px;
+  }
+
 }
 
 .content img {

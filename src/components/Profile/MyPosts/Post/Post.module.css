@@ -1,51 +1,52 @@
 .itemList {
-    color: #000;
-    padding: 18px 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-    background: rgba(244, 244, 244, 0.46);
+  color: #000;
+  padding: 18px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  background: #fff;
+  -webkit-box-shadow: 0 20px 50px rgba(245, 245, 245, 0.7);
+  box-shadow: 0 20px 50px rgba(245, 245, 245, 0.7);
 }
 
 .itemList img {
-    width: 100%;
-    max-width: 78px;
-    height: auto;
-    padding-right: 20px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-
+  width: 100%;
+  max-width: 78px;
+  height: auto;
+  padding-right: 20px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .itemList .itemList__item {
-    min-height: 80px;
-    padding: 10px 10px 5px;
+  min-height: 80px;
+  padding: 10px 10px 5px;
 }
 
 .itemList .itemList__item h5 {
-    max-width: 250px;
-    overflow: hidden;
-    margin-bottom: 10px;
+  max-width: 250px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .itemList .itemList__item:nth-last-child(1) {
-    border-top-right-radius: 3%;
-    max-width: 300px;
-    display: flex;
-
+  border-top-right-radius: 3%;
+  max-width: 300px;
+  display: flex;
 }
 
 .itemList .likeCount {
-    display: flex;
+  display: flex;
 }
 
 .itemList .likeCount img {
-    width: 100%;
-    max-width: 26px;
-    height: auto;
-    padding-right: 5px;
+  width: 100%;
+  max-width: 26px;
+  height: auto;
+  padding-right: 5px;
 }
