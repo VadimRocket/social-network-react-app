@@ -1,4 +1,4 @@
-import {combineReducers, createStore, applyMiddleware} from "redux";
+import {combineReducers, createStore, applyMiddleware, compose} from "redux";
 
 import dialogsReducer from "./dialogs_page_reducer";
 import profileReducer from "./profile_page_reducer";
@@ -20,8 +20,17 @@ let reducers = combineReducers({
     app: appReducer,
 });
 // applyMiddleware - промежуточный слой для обработки ф-ций
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
+// const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
-window.store = store; // check data
+
+/*
+redux-devtools-extension
+Advanced store setup 
+https://github.com/zalmoxisus/redux-devtools-extension 
+*/
+ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
+ 
+// window.store = store; // check data
 
 export default store;
