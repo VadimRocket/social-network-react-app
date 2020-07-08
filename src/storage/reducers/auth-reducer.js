@@ -1,6 +1,6 @@
 import { authAPI, securityAPI } from '../../api/api';
 import {stopSubmit} from 'redux-form';
- // type action 
+ // action types  
 const SET_USER_DATA = 'social-app/auth/SET_USER_DATA';
 const SET_CAPTCHA_URL = 'social-app/auth/SET_CAPTCHA_URL';
 

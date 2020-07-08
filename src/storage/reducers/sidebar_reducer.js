@@ -3,12 +3,12 @@ const SHOW_FRIENDS = 'social-app/sidebar/SHOW_FRIENDS';
 let initialState = {
 
     friends: [
-        { id: 1, name: 'Alex',    photo: 'http://avotarov.net/picture/avatar-100/kartinki/905.jpg' },
-        { id: 2, name: 'Olivia',  photo: 'http://avotarov.net/picture/avatar-100/kartinki/912.jpg' },
-        { id: 3, name: 'Harry',   photo: 'http://avotarov.net/picture/avatar-100/kartinki/903.jpg' },
-        { id: 4, name: 'Charlie', photo: 'http://avotarov.net/picture/avatar-100/kartinki/902.jpg' },
-        { id: 5, name: 'Jack',    photo: 'http://avotarov.net/picture/avatar-100/kartinki/910.jpg' },
-        { id: 6, name: 'Oliver',  photo: 'http://avotarov.net/picture/avatar-100/kartinki/913.gif' },
+        { id: 1, name: 'Alex',    photo: 'https://www.discordavatars.com/wp-content/uploads/2020/07/marvel-character-avatar-188.jpg' },
+        { id: 2, name: 'Olivia',  photo: 'https://www.discordavatars.com/wp-content/uploads/2020/05/male-actors-avatar-004.jpg' },
+        { id: 3, name: 'Harry',   photo: 'https://www.discordavatars.com/wp-content/uploads/2020/05/444979733181235210.jpg' },
+        { id: 4, name: 'Charlie', photo: 'https://www.discordavatars.com/wp-content/uploads/2020/05/the-walking-dead-avatar-002.jpg' },
+        { id: 5, name: 'Jack',    photo: 'https://www.discordavatars.com/wp-content/uploads/2020/05/male-actors-avatar-028.jpg' },
+        { id: 6, name: 'Oliver',  photo: 'https://www.discordavatars.com/wp-content/uploads/2020/05/male-actors-avatar-024.jpg' },
     ],
 };
 
